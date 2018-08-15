@@ -213,7 +213,7 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
     :return: Length of winning query, query (-1, '' if failed)
     """
     try:
-        query = urlparse.parse_qs(urlparse.urlparse(scryfall_url).query)['q'][0]
+        query: str = urlparse.parse_qs(urlparse.urlparse(scryfall_url).query)['q'][0]
 
         scryfall_api_url = 'https://api.scryfall.com/cards/search?q={0}'.format(query)
         response: Dict[str, Any] = download_contents(scryfall_api_url)
@@ -228,6 +228,10 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
             if card['name'] not in valid_cards:
                 logging.info('{0} result has wrong card: {1}'.format(user_name, card['name']))
                 return -1, ''
+
+        if 'or' in query.lower():
+            logging.info("{0} was correct, but they used 'OR': {1}".format(user_name, query))
+            return -1, ''
 
         # Correct response!
         logging.info('{0} was correct! Query Length: {1}'.format(user_name, len(query)))
@@ -308,5 +312,6 @@ def main() -> None:
 
 
 if __name__ == '__main__':
+    get_results()
     main()
 
