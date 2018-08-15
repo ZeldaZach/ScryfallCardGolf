@@ -25,7 +25,7 @@ SCRYFALL_RANDOM_URL = config.get('scryfallCardGolf', 'SCRYFALL_RANDOM_URL')
 
 # Logging configuration
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='[%(levelname)s] %(asctime)s: %(message)s',
     handlers=[
         logging.StreamHandler(),

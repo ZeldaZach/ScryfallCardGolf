@@ -223,8 +223,9 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
 
         json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
         max_key: str = max(json_db.keys())
+        valid_cards: List[str] = [json_db[max_key]['cards'][0]['name'], json_db[max_key]['cards'][1]['name']]
         for card in response['data']:
-            if card['name'] not in json_db[max_key]['cards']:
+            if card['name'] not in valid_cards:
                 logging.info('{0} result has wrong card: {1}'.format(user_name, card['name']))
                 return -1, ''
 
@@ -236,7 +237,7 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
         return -1, ''
 
 
-def get_results() -> None:
+def get_results() -> List[Dict[str, Any]]:
     """
     Get the results from the competition and print it out
     :return: Winner's name and their query
@@ -264,6 +265,9 @@ def get_results() -> None:
         elif 'message' in item and item['code'] == 88:
             logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
             break
+
+    return correct_users
+
 
 
 def main() -> None:
@@ -305,3 +309,4 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
