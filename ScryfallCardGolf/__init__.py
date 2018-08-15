@@ -29,5 +29,5 @@ logging.basicConfig(
     format='[%(levelname)s] %(asctime)s: %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler(LOGGING_DIR + 'card_golf_' + str(time.strftime('%Y-%m-%d_%H:%M:%S')) + '.log')
+        logging.FileHandler(str(LOGGING_DIR) + 'card_golf_' + str(time.strftime('%Y-%m-%d_%H:%M:%S')) + '.log')
     ])

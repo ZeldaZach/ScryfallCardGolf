@@ -186,7 +186,11 @@ def is_active_contest_already() -> bool:
     """
     # See if a current contest is active
     json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
-    max_key: str = max(json_db.keys())
+    try:
+        max_key: str = max(json_db.keys())
+    except ValueError:
+        logging.warning("Database was empty, continuing")
+        return False
 
     current_contest_start_date: datetime.datetime = datetime.datetime.strptime(max_key, '%Y-%m-%d_%H:%M:%S')
     current_contest_end_date: datetime.datetime = current_contest_start_date + datetime.timedelta(days=1)
@@ -284,7 +288,7 @@ def main() -> None:
     # Merge the images
     tweet_image_url: str = merge_card_images(cards)
 
-    message = 'Can you make both of these cards show up in a Scryfall search without using 'or'?\n• {0}\n• ' \
+    message = 'Can you make both of these cards show up in a Scryfall search without using \'or\'?\n• {0}\n• ' \
               '{1}\nRespond with a Scryfall URL and the #ScryfallCardGolf hash tag in the next 24 hours to enter!' \
               .format(card1, card2)
 
