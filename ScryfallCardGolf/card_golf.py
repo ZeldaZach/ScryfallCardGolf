@@ -1,3 +1,4 @@
+import argparse
 import datetime
 import glob
 import json
@@ -8,7 +9,7 @@ import urllib.parse as urlparse
 import shutil
 import requests
 from ScryfallCardGolf import *
-from typing import Dict, Any, List, Mapping
+from typing import Dict, Any, List, Mapping, Union
 import TwitterAPI
 
 
@@ -143,24 +144,35 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
     return save_url
 
 
-def write_to_json_db(file_name: str, entry: Dict[str, Any]) -> None:
+def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str, Any]]) -> None:
     """
     Write out a dictionary into the json database
     :param file_name: Database location
     :param entry: New dictionary entry to add
     :return: Nothing
     """
-    feeds = dict()
+
+    feeds = list()
+    if isinstance(entry, dict):
+        feeds = dict()
 
     if not os.path.isfile(file_name):
-        feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
+        if isinstance(feeds, dict):
+            feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
+        else:
+            feeds = entry
+
         with open(file_name, mode='w') as f:
             f.write(json.dumps(feeds, indent=4, sort_keys=True))
     else:
         with open(file_name) as json_feed:
             feeds = json.load(json_feed)
 
-        feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
+        if isinstance(feeds, dict):
+            feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
+        else:
+            feeds += entry
+
         with open(file_name, mode='w') as f:
             f.write(json.dumps(feeds, indent=4, sort_keys=True))
 
@@ -203,14 +215,14 @@ def is_active_contest_already() -> bool:
     return False
 
 
-def test_query(user_name: str, scryfall_url: str) -> (int, str):
+def test_query(user_name: str, scryfall_url: str) -> str:
     """
     Load up the Scryfall URL tweeted by the user and see if it
     matches the competition requirements (i.e. is it exclusively
     the two cards we are looking for)
     :param user_name: Twitter username
     :param scryfall_url: Scryfall URL they tweeted
-    :return: Length of winning query, query (-1, '' if failed)
+    :return: Winning query ('' if failed)
     """
     try:
         query: str = urlparse.parse_qs(urlparse.urlparse(scryfall_url).query)['q'][0]
@@ -227,18 +239,18 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
         for card in response['data']:
             if card['name'] not in valid_cards:
                 logging.info('{0} result has wrong card: {1}'.format(user_name, card['name']))
-                return -1, ''
+                return ''
 
         if 'or' in query.lower():
             logging.info("{0} was correct, but they used 'OR': {1}".format(user_name, query))
-            return -1, ''
+            return ''
 
         # Correct response!
-        logging.info('{0} was correct! Query Length: {1}'.format(user_name, len(query)))
-        return len(query), query
+        logging.info('{0} was correct! [ {1} ] ({2})'.format(user_name, query, len(query)))
+        return query
     except KeyError:
         logging.info('{0} submitted a bad Scryfall URL: {1}'.format(user_name, scryfall_url))
-        return -1, ''
+        return ''
 
 
 def get_results() -> List[Dict[str, Any]]:
@@ -246,7 +258,7 @@ def get_results() -> List[Dict[str, Any]]:
     Get the results from the competition and print it out
     :return: Winner's name and their query
     """
-    correct_users = list()
+    valid_entries: List[Dict[str, Any]] = list()
 
     logging.info('CONTEST OVER -- RESULTS')
     r = TwitterAPI.TwitterPager(twitter_api, 'search/tweets', {'q': '#ScryfallCardGolf', 'count': 100})
@@ -258,11 +270,11 @@ def get_results() -> List[Dict[str, Any]]:
                 if 'scryfall.com' in test_url:
                     logging.debug('{0} submitted solution: {1}'.format(item['user']['screen_name'], test_url))
                     test_query_results = test_query(item['user']['screen_name'], test_url)
-                    if test_query_results[0] > 0:
-                        correct_users.append({
+                    if len(test_query_results) > 0:
+                        valid_entries.append({
                             'name': item['user']['screen_name'],
-                            'length': test_query_results[0],
-                            'query': test_query_results[1]
+                            'length': len(test_query_results),
+                            'query': test_query_results
                         })
 
             # The submitted can't enter, so this means it's the end of the tweet train
@@ -272,12 +284,12 @@ def get_results() -> List[Dict[str, Any]]:
             logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
             break
 
-    return correct_users
+    return valid_entries
 
 
-def main() -> None:
+def main(force_new: bool = False) -> None:
     # If contest is over, print results and continue. Otherwise exit
-    if is_active_contest_already():
+    if not force_new and is_active_contest_already():
         exit(0)
 
     # Clear out the cards directory
@@ -313,5 +325,18 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    get_results()
-    main()
+    parser: argparse.ArgumentParser = argparse.ArgumentParser(description='Handle Scryfall Card Golf')
+    parser.add_argument('--results', action='store_true', help='get latest contest results')
+    parser.add_argument('--force-new', action='store_true', help='force start next contest')
+
+    args = parser.parse_args()
+
+    if args.results:
+        correct_users = get_results()
+        file_key: str = max(load_json_db(TWEET_DATABASE).keys())
+        write_to_json_db('../winners_{0}.json'.format(file_key), correct_users)
+
+    if args.force_new:
+        main(True)
+    else:
+        main()
