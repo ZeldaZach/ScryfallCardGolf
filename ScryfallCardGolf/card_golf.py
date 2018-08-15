@@ -264,14 +264,15 @@ def get_results() -> List[Dict[str, Any]]:
                             'length': test_query_results[0],
                             'query': test_query_results[1]
                         })
+
+            # The submitted can't enter, so this means it's the end of the tweet train
             if item['user']['screen_name'] == TWEETER_ACCOUNT:
-                continue
+                break
         elif 'message' in item and item['code'] == 88:
             logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
             break
 
     return correct_users
-
 
 
 def main() -> None:
@@ -314,4 +315,3 @@ def main() -> None:
 if __name__ == '__main__':
     get_results()
     main()
-
