@@ -26,7 +26,7 @@ def download_contents(url: str, download_type: str = 'json') -> Any:
     else:
         request_response: Dict[str, Any] = dict()
 
-    logging.debug("Downloaded URL {0}".format(url))
+    logging.debug('Downloaded URL {0}'.format(url))
     return request_response
 
 
@@ -34,8 +34,8 @@ def delete_temp_cards() -> None:
     """
     Delete the PNG images in the image folder
     """
-    for card in glob.glob(TEMP_CARD_DIR + "/*.png"):
-        logging.debug("Deleting file {0}".format(card))
+    for card in glob.glob(TEMP_CARD_DIR + '/*.png'):
+        logging.debug('Deleting file {0}'.format(card))
         os.remove(card)
 
 
@@ -65,9 +65,9 @@ def resize_image(url_to_open: str) -> None:
     try:
         im = PIL.Image.open(url_to_open)
         im.thumbnail((1024, 512), PIL.Image.ANTIALIAS)
-        im.save(url_to_open, "PNG")
+        im.save(url_to_open, 'PNG')
     except IOError:
-        logging.error("Cannot create thumbnail for {0}".format(url_to_open))
+        logging.error('Cannot create thumbnail for {0}'.format(url_to_open))
 
 
 def send_tweet(message_to_tweet: str, url_to_media: str) -> int:
@@ -77,19 +77,19 @@ def send_tweet(message_to_tweet: str, url_to_media: str) -> int:
     :param url_to_media: Image to upload
     :return: Tweet ID (-1 if it failed)
     """
-    logging.debug("Tweet to send: {0}".format(message_to_tweet))
+    logging.debug('Tweet to send: {0}'.format(message_to_tweet))
     try:
         if url_to_media is not None:
             resize_image(url_to_media)
             photo = open(url_to_media, 'rb')
             status = twitter_api.request('statuses/update_with_media', {'status': message_to_tweet}, {'media[]': photo})
-            logging.debug("Twitter Status Code: {0}".format(status.status_code))
+            logging.debug('Twitter Status Code: {0}'.format(status.status_code))
 
             response = TwitterAPI.TwitterResponse(status, False).json()
-            logging.debug("Twitter Response Parsed: {0}".format(response))
+            logging.debug('Twitter Response Parsed: {0}'.format(response))
             return response['id_str']
     except UnicodeDecodeError:
-        logging.error("Your message could not be encoded.  Perhaps it contains non-ASCII characters? ")
+        logging.error('Your message could not be encoded.  Perhaps it contains non-ASCII characters? ')
 
     return -1
 
@@ -101,11 +101,11 @@ def download_and_save_card_images(cards: List[Dict[str, Any]]) -> None:
     :return: Nothing
     """
     for card in cards:
-        card_image_url: str = card["image_uris"]["png"]
+        card_image_url: str = card['image_uris']['png']
         request_image = download_contents(card_image_url, 'image')
-        with open(TEMP_CARD_DIR + '{0}.png'.format(card["name"].replace("//", "_")), 'wb') as out_file:
+        with open(TEMP_CARD_DIR + '{0}.png'.format(card['name'].replace('//', '_')), 'wb') as out_file:
             shutil.copyfileobj(request_image.raw, out_file)
-        logging.debug("Saving image of card {0}".format(card["name"]))
+        logging.debug('Saving image of card {0}'.format(card['name']))
         del request_image
 
 
@@ -134,11 +134,11 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
         x_offset += im.size[0]
 
     save_url: str = TEMP_CARD_DIR + '/{0}-{1}.png'.format(
-        cards[0]["name"].replace("//", "_"),
-        cards[1]["name"].replace("//", "_"))
+        cards[0]['name'].replace('//', '_'),
+        cards[1]['name'].replace('//', '_'))
 
     new_im.save(save_url)
-    logging.debug("Saved merged image to {0}".format(save_url))
+    logging.debug('Saved merged image to {0}'.format(save_url))
 
     return save_url
 
@@ -192,7 +192,7 @@ def is_active_contest_already() -> bool:
     current_contest_end_date: datetime.datetime = current_contest_start_date + datetime.timedelta(days=1)
 
     if current_contest_end_date > datetime.datetime.now():
-        logging.warning("Current contest from {0} still active".format(max_key))
+        logging.warning('Current contest from {0} still active'.format(max_key))
         return True
 
     get_results()
@@ -211,24 +211,24 @@ def test_query(user_name: str, scryfall_url: str) -> (int, str):
     try:
         query = urlparse.parse_qs(urlparse.urlparse(scryfall_url).query)['q'][0]
 
-        scryfall_api_url = "https://api.scryfall.com/cards/search?q={0}".format(query)
+        scryfall_api_url = 'https://api.scryfall.com/cards/search?q={0}'.format(query)
         response: Dict[str, Any] = download_contents(scryfall_api_url)
 
-        if response["total_cards"] != 2:
-            logging.info("{0} result has wrong number of cards: {1}".format(user_name, response["total_cards"]))
+        if response['total_cards'] != 2:
+            logging.info('{0} result has wrong number of cards: {1}'.format(user_name, response['total_cards']))
 
         json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
         max_key: str = max(json_db.keys())
-        for card in response["data"]:
-            if card["name"] not in json_db[max_key]["cards"]:
-                logging.info("{0} result has wrong card: {1}".format(user_name, card["name"]))
+        for card in response['data']:
+            if card['name'] not in json_db[max_key]['cards']:
+                logging.info('{0} result has wrong card: {1}'.format(user_name, card['name']))
                 return -1, ''
 
         # Correct response!
-        logging.info("{0} was correct! Query Length: {1}".format(user_name, len(query)))
+        logging.info('{0} was correct! Query Length: {1}'.format(user_name, len(query)))
         return len(query), query
     except KeyError:
-        logging.info("{0} submitted a bad Scryfall URL: {1}".format(user_name, scryfall_url))
+        logging.info('{0} submitted a bad Scryfall URL: {1}'.format(user_name, scryfall_url))
         return -1, ''
 
 
@@ -239,15 +239,15 @@ def get_results() -> None:
     """
     correct_users = list()
 
-    logging.info("CONTEST OVER -- RESULTS")
+    logging.info('CONTEST OVER -- RESULTS')
     r = TwitterAPI.TwitterPager(twitter_api, 'search/tweets', {'q': '#ScryfallCardGolf', 'count': 100})
     for item in r.get_iterator():
         if 'text' in item:
-            logging.debug(item['user']['screen_name'] + ": " + item['text'])
+            logging.debug(item['user']['screen_name'] + ': ' + item['text'])
             for url in item['entities']['urls']:
                 test_url = url['expanded_url']
                 if 'scryfall.com' in test_url:
-                    logging.debug("{0} submitted solution: {1}".format(item['user']['screen_name'], test_url))
+                    logging.debug('{0} submitted solution: {1}'.format(item['user']['screen_name'], test_url))
                     test_query_results = test_query(item['user']['screen_name'], test_url)
                     if test_query_results[0] > 0:
                         correct_users.append({
@@ -272,11 +272,11 @@ def main() -> None:
 
     # Get 2 random cards
     cards: List[Dict[str, Any]] = download_random_cards(2)
-    card1 = "{0}: {1}".format(cards[0]["name"], cards[0]["scryfall_uri"])
-    card2 = "{0}: {1}".format(cards[1]["name"], cards[1]["scryfall_uri"])
+    card1 = '{0}: {1}'.format(cards[0]['name'], cards[0]['scryfall_uri'])
+    card2 = '{0}: {1}'.format(cards[1]['name'], cards[1]['scryfall_uri'])
 
     for card in cards:
-        logging.debug("Card to merge: {0}".format(card["name"]))
+        logging.debug('Card to merge: {0}'.format(card['name']))
 
     # Save the images
     download_and_save_card_images(cards)
@@ -284,16 +284,16 @@ def main() -> None:
     # Merge the images
     tweet_image_url: str = merge_card_images(cards)
 
-    message = "Can you make both of these cards show up in a Scryfall search without using 'or'?\n• {0}\n• " \
-              "{1}\nRespond with a Scryfall URL and the #ScryfallCardGolf hashtag in the next 24 hours to enter!" \
+    message = 'Can you make both of these cards show up in a Scryfall search without using 'or'?\n• {0}\n• ' \
+              '{1}\nRespond with a Scryfall URL and the #ScryfallCardGolf hash tag in the next 24 hours to enter!' \
               .format(card1, card2)
 
     # Send the tweet
     tweet_id: int = send_tweet(message, tweet_image_url)
 
     json_entry: Dict[str, Any] = {'tweet_id': tweet_id, 'cards': [
-            {"name": cards[0]["name"], "url": cards[0]["scryfall_uri"]},
-            {"name": cards[1]["name"], "url": cards[1]["scryfall_uri"]}
+            {'name': cards[0]['name'], 'url': cards[0]['scryfall_uri']},
+            {'name': cards[1]['name'], 'url': cards[1]['scryfall_uri']}
         ]}
 
     write_to_json_db(TWEET_DATABASE, json_entry)

@@ -3,13 +3,8 @@ import logging
 import time
 from TwitterAPI import TwitterAPI
 
-# Config variables
-TEMP_CARD_DIR = "../images/"
-LOGGING_DIR = "../logs/"
-TWEET_DATABASE = "../tweet_database.json"
-TWEETER_ACCOUNT = "Zoozach"
-SCRYFALL_RANDOM_URL = "https://api.scryfall.com/cards/random"
-CONFIG_PATH = "../scryfallcardgolf.properties"
+# Config options
+CONFIG_PATH = '../scryfallcardgolf.properties'
 
 # Open and read secret properties
 config = configparser.RawConfigParser()
@@ -22,11 +17,17 @@ twitter_api = TwitterAPI(config.get('twitter', 'CONSUMER_KEY'),
                          config.get('twitter', 'ACCESS_TOKEN_SECRET')
                          )
 
+TWEETER_ACCOUNT = config.get('twitter', 'USERNAME')
+LOGGING_DIR = config.get('scryfallCardGolf', 'LOGGING_DIR')
+TEMP_CARD_DIR = config.get('scryfallCardGolf', 'TEMP_CARD_DIR')
+TWEET_DATABASE = config.get('scryfallCardGolf', 'TWEET_DATABASE')
+SCRYFALL_RANDOM_URL = config.get('scryfallCardGolf', 'SCRYFALL_RANDOM_URL')
+
 # Logging configuration
 logging.basicConfig(
     level=logging.DEBUG,
-    format="[%(levelname)s] %(asctime)s: %(message)s",
+    format='[%(levelname)s] %(asctime)s: %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler(LOGGING_DIR + '/card_golf_' + str(time.strftime('%Y-%m-%d_%H:%M:%S')) + '.log')
+        logging.FileHandler(LOGGING_DIR + 'card_golf_' + str(time.strftime('%Y-%m-%d_%H:%M:%S')) + '.log')
     ])
