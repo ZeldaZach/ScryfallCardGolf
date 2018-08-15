@@ -211,7 +211,7 @@ def is_active_contest_already() -> bool:
         logging.warning('Current contest from {0} still active'.format(max_key))
         return True
 
-    get_results()
+    write_results(get_results())
     return False
 
 
@@ -287,6 +287,15 @@ def get_results() -> List[Dict[str, Any]]:
     return valid_entries
 
 
+def write_results(results: List[Dict[str, Any]]) -> None:
+    """
+    Take a list of results and put it to the winners file for that contest
+    :param results: List of winners
+    """
+    file_key: str = max(load_json_db(TWEET_DATABASE).keys())
+    write_to_json_db('../winners_{0}.json'.format(file_key), results)
+
+
 def main(force_new: bool = False) -> None:
     # If contest is over, print results and continue. Otherwise exit
     if not force_new and is_active_contest_already():
@@ -333,8 +342,7 @@ if __name__ == '__main__':
 
     if args.results:
         correct_users = get_results()
-        file_key: str = max(load_json_db(TWEET_DATABASE).keys())
-        write_to_json_db('../winners_{0}.json'.format(file_key), correct_users)
+        write_results(correct_users)
 
     if args.force_new:
         main(True)
