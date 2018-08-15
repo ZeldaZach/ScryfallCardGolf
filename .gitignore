@@ -3,3 +3,5 @@ logs/
 images/
 venv/
 .idea/
+tweet_database.json
+__pycache__/
