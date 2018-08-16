@@ -307,8 +307,8 @@ def start_game(force_new: bool = False) -> None:
 
     # Get 2 random cards
     cards: List[Dict[str, Any]] = download_random_cards(2)
-    card1 = '{0}: {1}'.format(cards[0]['name'], cards[0]['scryfall_uri'])
-    card2 = '{0}: {1}'.format(cards[1]['name'], cards[1]['scryfall_uri'])
+    card1 = '{0}: {1}'.format(cards[0]['name'], cards[0]['scryfall_uri'].replace('api', 'card_golf'))
+    card2 = '{0}: {1}'.format(cards[1]['name'], cards[1]['scryfall_uri'].replace('api', 'card_golf'))
 
     for card in cards:
         logging.info('Card to merge: {0}'.format(card['name']))
