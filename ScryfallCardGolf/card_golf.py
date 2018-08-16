@@ -8,6 +8,7 @@ import PIL.Image
 import urllib.parse as urlparse
 import shutil
 import requests
+
 from ScryfallCardGolf import *
 from typing import Dict, Any, List, Mapping, Union
 import TwitterAPI
@@ -27,7 +28,7 @@ def download_contents(url: str, download_type: str = 'json') -> Any:
     else:
         request_response: Dict[str, Any] = dict()
 
-    logging.debug('Downloaded URL {0}'.format(url))
+    logging.info('Downloaded URL {0}'.format(url))
     return request_response
 
 
@@ -36,7 +37,7 @@ def delete_temp_cards() -> None:
     Delete the PNG images in the image folder
     """
     for card in glob.glob(TEMP_CARD_DIR + '/*.png'):
-        logging.debug('Deleting file {0}'.format(card))
+        logging.info('Deleting file {0}'.format(card))
         os.remove(card)
 
 
@@ -78,16 +79,16 @@ def send_tweet(message_to_tweet: str, url_to_media: str) -> int:
     :param url_to_media: Image to upload
     :return: Tweet ID (-1 if it failed)
     """
-    logging.debug('Tweet to send: {0}'.format(message_to_tweet))
+    logging.info('Tweet to send: {0}'.format(message_to_tweet))
     try:
         if url_to_media is not None:
             resize_image(url_to_media)
             photo = open(url_to_media, 'rb')
             status = twitter_api.request('statuses/update_with_media', {'status': message_to_tweet}, {'media[]': photo})
-            logging.debug('Twitter Status Code: {0}'.format(status.status_code))
+            logging.info('Twitter Status Code: {0}'.format(status.status_code))
 
             response = TwitterAPI.TwitterResponse(status, False).json()
-            logging.debug('Twitter Response Parsed: {0}'.format(response))
+            logging.info('Twitter Response Parsed: {0}'.format(response))
             return response['id_str']
     except UnicodeDecodeError:
         logging.error('Your message could not be encoded.  Perhaps it contains non-ASCII characters? ')
@@ -106,7 +107,7 @@ def download_and_save_card_images(cards: List[Dict[str, Any]]) -> None:
         request_image = download_contents(card_image_url, 'image')
         with open(TEMP_CARD_DIR + '{0}.png'.format(card['name'].replace('//', '_')), 'wb') as out_file:
             shutil.copyfileobj(request_image.raw, out_file)
-        logging.debug('Saving image of card {0}'.format(card['name']))
+        logging.info('Saving image of card {0}'.format(card['name']))
         del request_image
 
 
@@ -139,7 +140,7 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
         cards[1]['name'].replace('//', '_'))
 
     new_im.save(save_url)
-    logging.debug('Saved merged image to {0}'.format(save_url))
+    logging.info('Saved merged image to {0}'.format(save_url))
 
     return save_url
 
@@ -264,11 +265,11 @@ def get_results() -> List[Dict[str, Any]]:
     r = TwitterAPI.TwitterPager(twitter_api, 'search/tweets', {'q': '#ScryfallCardGolf', 'count': 100})
     for item in r.get_iterator():
         if 'text' in item:
-            logging.debug(item['user']['screen_name'] + ': ' + item['text'])
+            logging.info(item['user']['screen_name'] + ': ' + item['text'])
             for url in item['entities']['urls']:
                 test_url = url['expanded_url']
                 if 'scryfall.com' in test_url:
-                    logging.debug('{0} submitted solution: {1}'.format(item['user']['screen_name'], test_url))
+                    logging.info('{0} submitted solution: {1}'.format(item['user']['screen_name'], test_url))
                     test_query_results = test_query(item['user']['screen_name'], test_url)
                     if len(test_query_results) > 0:
                         valid_entries.append({
@@ -279,7 +280,7 @@ def get_results() -> List[Dict[str, Any]]:
 
             # The submitted can't enter, so this means it's the end of the tweet train
             if item['user']['screen_name'] == TWEETER_ACCOUNT:
-                break
+                continue  # Ehh... we can run multiple at a time if we want
         elif 'message' in item and item['code'] == 88:
             logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
             break
@@ -293,10 +294,10 @@ def write_results(results: List[Dict[str, Any]]) -> None:
     :param results: List of winners
     """
     file_key: str = max(load_json_db(TWEET_DATABASE).keys())
-    write_to_json_db('../winners_{0}.json'.format(file_key), results)
+    write_to_json_db(WINNING_DIR + 'winners_{0}.json'.format(file_key), results)
 
 
-def main(force_new: bool = False) -> None:
+def start_game(force_new: bool = False) -> None:
     # If contest is over, print results and continue. Otherwise exit
     if not force_new and is_active_contest_already():
         exit(0)
@@ -310,7 +311,7 @@ def main(force_new: bool = False) -> None:
     card2 = '{0}: {1}'.format(cards[1]['name'], cards[1]['scryfall_uri'])
 
     for card in cards:
-        logging.debug('Card to merge: {0}'.format(card['name']))
+        logging.info('Card to merge: {0}'.format(card['name']))
 
     # Save the images
     download_and_save_card_images(cards)
@@ -343,8 +344,9 @@ if __name__ == '__main__':
     if args.results:
         correct_users = get_results()
         write_results(correct_users)
+        exit(0)
 
     if args.force_new:
-        main(True)
+        start_game(True)
     else:
-        main()
+        start_game()

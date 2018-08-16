@@ -14,7 +14,7 @@ config.read(CONFIG_PATH)
 twitter_api = TwitterAPI(config.get('twitter', 'CONSUMER_KEY'),
                          config.get('twitter', 'CONSUMER_SECRET'),
                          config.get('twitter', 'ACCESS_TOKEN_KEY'),
-                         config.get('twitter', 'ACCESS_TOKEN_SECRET')
+                         config.get('twitter', 'ACCESS_TOKEN_SECRET'),
                          )
 
 TWEETER_ACCOUNT = config.get('twitter', 'USERNAME')
@@ -22,6 +22,7 @@ LOGGING_DIR = config.get('scryfallCardGolf', 'LOGGING_DIR')
 TEMP_CARD_DIR = config.get('scryfallCardGolf', 'TEMP_CARD_DIR')
 TWEET_DATABASE = config.get('scryfallCardGolf', 'TWEET_DATABASE')
 SCRYFALL_RANDOM_URL = config.get('scryfallCardGolf', 'SCRYFALL_RANDOM_URL')
+WINNING_DIR = config.get('scryfallCardGolf', 'WINNING_DIR')
 
 # Logging configuration
 logging.basicConfig(
