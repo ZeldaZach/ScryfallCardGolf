@@ -164,7 +164,8 @@ def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str
         feeds = sorted(entry, key=extract_query_length, reverse=False)
 
     with open(file_name, mode='w') as f:
-        f.write(json.dumps(feeds, indent=4, sort_keys=True))
+        # For some reason, backslashes appear as \\ instead of \. This fixes it :(
+        f.write(json.dumps(feeds, indent=4, sort_keys=True).replace("\\\\", "\\"))
 
 
 def load_json_db(file_name: str) -> Any:
@@ -330,11 +331,11 @@ def start_game(force_new: bool = False) -> None:
         'tweet_id': tweet_id,
         'cards': [{
             'name': cards[0]['name'],
-            'url': cards[0]['scryfall_uri']
+            'url': cards[0]['scryfall_uri'],
         }, {
             'name': cards[1]['name'],
-            'url': cards[1]['scryfall_uri']
-        }]
+            'url': cards[1]['scryfall_uri'],
+        }],
     }
 
     write_to_json_db(TWEET_DATABASE, json_entry)
