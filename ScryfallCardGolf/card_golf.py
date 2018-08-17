@@ -350,7 +350,7 @@ def main() -> None:
     if args.results:
         correct_users = get_results()
         write_results(correct_users)
-        exit(0)
+        return
 
     start_game(args.force_new)
 
