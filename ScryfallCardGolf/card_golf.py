@@ -340,7 +340,7 @@ def start_game(force_new: bool = False) -> None:
     write_to_json_db(TWEET_DATABASE, json_entry)
 
 
-if __name__ == '__main__':
+def main() -> None:
     parser: argparse.ArgumentParser = argparse.ArgumentParser(description='Handle Scryfall Card Golf')
     parser.add_argument('--results', action='store_true', help='get latest contest results')
     parser.add_argument('--force-new', action='store_true', help='force start next contest')
@@ -353,3 +353,7 @@ if __name__ == '__main__':
         exit(0)
 
     start_game(args.force_new)
+
+
+if __name__ == '__main__':
+    main()
