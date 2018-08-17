@@ -14,6 +14,18 @@ from typing import Dict, Any, List, Mapping, Union
 import TwitterAPI
 
 
+def extract_query_length(json_dict: Dict[str, str]) -> int:
+    """
+    Query sort key to get length
+    :param json_dict:
+    :return: Length of object
+    """
+    try:
+        return int(json_dict['length'])
+    except KeyError:
+        return 0
+
+
 def download_contents(url: str, download_type: str = 'json') -> Any:
     """
     Download contents from a URL
@@ -47,7 +59,6 @@ def download_random_cards(number_of_cards: int) -> List[Dict[str, Any]]:
     :param number_of_cards: How many cards to play with
     :return: List of card objects requested
     """
-
     ret_val: List[Dict[str, Any]] = list()
     while number_of_cards > 0:
         request_api_json: Dict[str, Any] = download_contents(SCRYFALL_RANDOM_URL)
@@ -162,6 +173,7 @@ def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
         else:
             feeds = entry
+            feeds.sort(key=extract_query_length, reverse=False)
 
         with open(file_name, mode='w') as f:
             f.write(json.dumps(feeds, indent=4, sort_keys=True))
@@ -172,7 +184,9 @@ def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str
         if isinstance(feeds, dict):
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
         else:
-            feeds += entry
+            # Winners will be re-created each time
+            feeds = entry
+            feeds.sort(key=extract_query_length, reverse=False)
 
         with open(file_name, mode='w') as f:
             f.write(json.dumps(feeds, indent=4, sort_keys=True))
@@ -191,7 +205,7 @@ def load_json_db(file_name: str) -> Dict[str, Any]:
         return json.load(json_feed)
 
 
-def is_active_contest_already() -> bool:
+def is_active_contest_already(force_new_contest: bool) -> bool:
     """
     Determine if there is a current competition live.
     If the contest is finished, gather the results (separate function)
@@ -208,7 +222,7 @@ def is_active_contest_already() -> bool:
     current_contest_start_date: datetime.datetime = datetime.datetime.strptime(max_key, '%Y-%m-%d_%H:%M:%S')
     current_contest_end_date: datetime.datetime = current_contest_start_date + datetime.timedelta(days=1)
 
-    if current_contest_end_date > datetime.datetime.now():
+    if not force_new_contest and current_contest_end_date > datetime.datetime.now():
         logging.warning('Current contest from {0} still active'.format(max_key))
         return True
 
@@ -262,10 +276,18 @@ def get_results() -> List[Dict[str, Any]]:
     valid_entries: List[Dict[str, Any]] = list()
 
     logging.info('CONTEST OVER -- RESULTS')
-    r = TwitterAPI.TwitterPager(twitter_api, 'search/tweets', {'q': '#ScryfallCardGolf', 'count': 100})
+
+    json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
+    max_key: str = max(json_db.keys())
+
+    r = TwitterAPI.TwitterPager(twitter_api, 'statuses/mentions_timeline', {
+        'count': 200,
+        'since_id': json_db[max_key]['tweet_id']
+        })
+
     for item in r.get_iterator():
         if 'text' in item:
-            logging.info(item['user']['screen_name'] + ': ' + item['text'])
+            logging.info('[TWEET] ' + item['user']['screen_name'] + ': ' + item['text'])
             for url in item['entities']['urls']:
                 test_url = url['expanded_url']
                 if 'scryfall.com' in test_url:
@@ -277,11 +299,7 @@ def get_results() -> List[Dict[str, Any]]:
                             'length': len(test_query_results),
                             'query': test_query_results
                         })
-
-            # The submitted can't enter, so this means it's the end of the tweet train
-            if item['user']['screen_name'] == TWEETER_ACCOUNT:
-                continue  # Ehh... we can run multiple at a time if we want
-        elif 'message' in item and item['code'] == 88:
+        else:
             logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
             break
 
@@ -299,7 +317,7 @@ def write_results(results: List[Dict[str, Any]]) -> None:
 
 def start_game(force_new: bool = False) -> None:
     # If contest is over, print results and continue. Otherwise exit
-    if not force_new and is_active_contest_already():
+    if is_active_contest_already(force_new):
         exit(0)
 
     # Clear out the cards directory
@@ -319,9 +337,8 @@ def start_game(force_new: bool = False) -> None:
     # Merge the images
     tweet_image_url: str = merge_card_images(cards)
 
-    message = 'Can you make both of these cards show up in a Scryfall search without using \'or\'?\n• {0}\n• ' \
-              '{1}\nRespond with a Scryfall URL and the #ScryfallCardGolf hash tag in the next 24 hours to enter!' \
-              .format(card1, card2)
+    message = 'Can you make both of these cards show up in a Scryfall search without using \'or\'?\n• {0}\n• {1}' \
+              '\nReply to this tweet with a Scryfall URL in the next 24 hours to enter!'.format(card1, card2)
 
     # Send the tweet
     tweet_id: int = send_tweet(message, tweet_image_url)
