@@ -359,7 +359,4 @@ if __name__ == '__main__':
         write_results(correct_users)
         exit(0)
 
-    if args.force_new:
-        start_game(True)
-    else:
-        start_game()
+    start_game(args.force_new)
