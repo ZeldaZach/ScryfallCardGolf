@@ -163,33 +163,20 @@ def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str
     :param entry: New dictionary entry to add
     :return: Nothing
     """
-
-    feeds = list()
+    feeds: Union[List[Dict[str, Any]], Dict[str, Any]] = dict()
     if isinstance(entry, dict):
-        feeds = dict()
-
-    if not os.path.isfile(file_name):
-        if isinstance(feeds, dict):
+        if not os.path.isfile(file_name):
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
         else:
-            feeds = entry
-            feeds.sort(key=extract_query_length, reverse=False)
-
-        with open(file_name, mode='w') as f:
-            f.write(json.dumps(feeds, indent=4, sort_keys=True))
-    else:
-        with open(file_name) as json_feed:
-            feeds = json.load(json_feed)
-
-        if isinstance(feeds, dict):
+            with open(file_name) as json_feed:
+                feeds = json.load(json_feed)
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
-        else:
-            # Winners will be re-created each time
-            feeds = entry
-            feeds.sort(key=extract_query_length, reverse=False)
+    elif isinstance(entry, list):
+        feeds = entry
+        feeds.sort(key=extract_query_length, reverse=False)
 
-        with open(file_name, mode='w') as f:
-            f.write(json.dumps(feeds, indent=4, sort_keys=True))
+    with open(file_name, mode='w') as f:
+        f.write(json.dumps(feeds, indent=4, sort_keys=True))
 
 
 def load_json_db(file_name: str) -> Dict[str, Any]:
@@ -275,7 +262,7 @@ def get_results() -> List[Dict[str, Any]]:
     """
     valid_entries: List[Dict[str, Any]] = list()
 
-    logging.info('CONTEST OVER -- RESULTS')
+    logging.info('GET RESULTS')
 
     json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
     max_key: str = max(json_db.keys())
@@ -316,6 +303,10 @@ def write_results(results: List[Dict[str, Any]]) -> None:
 
 
 def start_game(force_new: bool = False) -> None:
+    """
+    Start the process of validating an old game and/or creating a new one
+    :param force_new: Start a new game, even if one is running. End the old game
+    """
     # If contest is over, print results and continue. Otherwise exit
     if is_active_contest_already(force_new):
         exit(0)
@@ -352,6 +343,9 @@ def start_game(force_new: bool = False) -> None:
 
 
 if __name__ == '__main__':
+    """
+    Main Method
+    """
     parser: argparse.ArgumentParser = argparse.ArgumentParser(description='Handle Scryfall Card Golf')
     parser.add_argument('--results', action='store_true', help='get latest contest results')
     parser.add_argument('--force-new', action='store_true', help='force start next contest')
