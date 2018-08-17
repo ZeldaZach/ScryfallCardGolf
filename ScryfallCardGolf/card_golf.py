@@ -3,14 +3,16 @@ import datetime
 import glob
 import json
 import os
+import time
 
 import PIL.Image
 import urllib.parse as urlparse
 import shutil
 import requests
 
-from ScryfallCardGolf import *
-from typing import Dict, Any, List, Mapping, Union
+from ScryfallCardGolf import logging, TEMP_CARD_DIR, SCRYFALL_RANDOM_URL, twitter_api, TWEET_DATABASE, WINNING_DIR
+
+from typing import Dict, Any, List, Union, Iterator
 import TwitterAPI
 
 
@@ -33,12 +35,11 @@ def download_contents(url: str, download_type: str = 'json') -> Any:
     :param download_type: Type of download (Default to JSON)
     :return: Contents
     """
+    request_response: Any = dict()
     if download_type == 'json':
-        request_response: Dict[str, Any] = requests.get(url=url).json()
+        request_response = requests.get(url=url).json()
     elif download_type == 'image':
-        request_response: Any = requests.get(url, stream=True)
-    else:
-        request_response: Dict[str, Any] = dict()
+        request_response = requests.get(url, stream=True)
 
     logging.info('Downloaded URL {0}'.format(url))
     return request_response
@@ -100,7 +101,7 @@ def send_tweet(message_to_tweet: str, url_to_media: str) -> int:
 
             response = TwitterAPI.TwitterResponse(status, False).json()
             logging.info('Twitter Response Parsed: {0}'.format(response))
-            return response['id_str']
+            return int(response['id_str'])
     except UnicodeDecodeError:
         logging.error('Your message could not be encoded.  Perhaps it contains non-ASCII characters? ')
 
@@ -111,7 +112,6 @@ def download_and_save_card_images(cards: List[Dict[str, Any]]) -> None:
     """
     Download and (temporarily) save card images for tweet processing
     :param cards: Cards to download and store
-    :return: Nothing
     """
     for card in cards:
         card_image_url: str = card['image_uris']['png']
@@ -132,7 +132,7 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
     """
     cards_to_merge: List[str] = glob.glob(TEMP_CARD_DIR + '*.png')
 
-    images: Mapping[PIL.Image, List[str]] = map(PIL.Image.open, cards_to_merge)
+    images: Iterator[Any] = map(PIL.Image.open, cards_to_merge)
     widths, heights = zip(*(i.size for i in images))
 
     total_width = sum(widths)
@@ -146,9 +146,8 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
         new_im.paste(im, (x_offset, 0))
         x_offset += im.size[0]
 
-    save_url: str = TEMP_CARD_DIR + '/{0}-{1}.png'.format(
-        cards[0]['name'].replace('//', '_'),
-        cards[1]['name'].replace('//', '_'))
+    save_url: str = TEMP_CARD_DIR + '/{0}-{1}.png'.format(cards[0]['name'].replace('//', '_'), cards[1]['name'].replace(
+        '//', '_'))
 
     new_im.save(save_url)
     logging.info('Saved merged image to {0}'.format(save_url))
@@ -161,15 +160,15 @@ def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str
     Write out a dictionary into the json database
     :param file_name: Database location
     :param entry: New dictionary entry to add
-    :return: Nothing
     """
-    feeds: Union[List[Dict[str, Any]], Dict[str, Any]] = dict()
+    feeds: Union[List[Dict[str, Any]], Dict[str, Any]] = list()
     if isinstance(entry, dict):
+        feeds = dict()
         if not os.path.isfile(file_name):
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
         else:
             with open(file_name) as json_feed:
-                feeds = json.load(json_feed)
+                feeds = dict(json.load(json_feed))
             feeds[str(time.strftime('%Y-%m-%d_%H:%M:%S'))] = entry
     elif isinstance(entry, list):
         feeds = entry
@@ -189,7 +188,7 @@ def load_json_db(file_name: str) -> Dict[str, Any]:
         return dict()
 
     with open(file_name) as json_feed:
-        return json.load(json_feed)
+        return dict(json.load(json_feed))
 
 
 def is_active_contest_already(force_new_contest: bool) -> bool:
@@ -270,7 +269,7 @@ def get_results() -> List[Dict[str, Any]]:
     r = TwitterAPI.TwitterPager(twitter_api, 'statuses/mentions_timeline', {
         'count': 200,
         'since_id': json_db[max_key]['tweet_id']
-        })
+    })
 
     for item in r.get_iterator():
         if 'text' in item:
@@ -280,7 +279,7 @@ def get_results() -> List[Dict[str, Any]]:
                 if 'scryfall.com' in test_url:
                     logging.info('{0} submitted solution: {1}'.format(item['user']['screen_name'], test_url))
                     test_query_results = test_query(item['user']['screen_name'], test_url)
-                    if len(test_query_results) > 0:
+                    if test_query_results:
                         valid_entries.append({
                             'name': item['user']['screen_name'],
                             'length': len(test_query_results),
@@ -334,18 +333,21 @@ def start_game(force_new: bool = False) -> None:
     # Send the tweet
     tweet_id: int = send_tweet(message, tweet_image_url)
 
-    json_entry: Dict[str, Any] = {'tweet_id': tweet_id, 'cards': [
-            {'name': cards[0]['name'], 'url': cards[0]['scryfall_uri']},
-            {'name': cards[1]['name'], 'url': cards[1]['scryfall_uri']}
-        ]}
+    json_entry: Dict[str, Any] = {
+        'tweet_id': tweet_id,
+        'cards': [{
+            'name': cards[0]['name'],
+            'url': cards[0]['scryfall_uri']
+        }, {
+            'name': cards[1]['name'],
+            'url': cards[1]['scryfall_uri']
+        }]
+    }
 
     write_to_json_db(TWEET_DATABASE, json_entry)
 
 
 if __name__ == '__main__':
-    """
-    Main Method
-    """
     parser: argparse.ArgumentParser = argparse.ArgumentParser(description='Handle Scryfall Card Golf')
     parser.add_argument('--results', action='store_true', help='get latest contest results')
     parser.add_argument('--force-new', action='store_true', help='force start next contest')

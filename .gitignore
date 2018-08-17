@@ -5,3 +5,9 @@ venv/
 .idea/
 tweet_database.json
 __pycache__/
+*.egg-info/
+build/
+dist/
+*.pyc
+*.csv
+winners/

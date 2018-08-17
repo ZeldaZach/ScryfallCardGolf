@@ -11,11 +11,12 @@ config = configparser.RawConfigParser()
 config.read(CONFIG_PATH)
 
 # Twitter API configuration
-twitter_api = TwitterAPI(config.get('twitter', 'CONSUMER_KEY'),
-                         config.get('twitter', 'CONSUMER_SECRET'),
-                         config.get('twitter', 'ACCESS_TOKEN_KEY'),
-                         config.get('twitter', 'ACCESS_TOKEN_SECRET'),
-                         )
+twitter_api = TwitterAPI(
+    config.get('twitter', 'CONSUMER_KEY'),
+    config.get('twitter', 'CONSUMER_SECRET'),
+    config.get('twitter', 'ACCESS_TOKEN_KEY'),
+    config.get('twitter', 'ACCESS_TOKEN_SECRET'),
+)
 
 TWEETER_ACCOUNT = config.get('twitter', 'USERNAME')
 LOGGING_DIR = config.get('scryfallCardGolf', 'LOGGING_DIR')
