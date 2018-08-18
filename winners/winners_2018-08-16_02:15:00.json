@@ -1,0 +1,37 @@
+[
+    {
+        "length": 25,
+        "name": "AlexisJanson",
+        "query": "is:promo a:j t:en in ne d"
+    },
+    {
+        "length": 30,
+        "name": "DelverGoGaming",
+        "query": "is:promo a:j a:el ne -c:c -a:k"
+    },
+    {
+        "length": 34,
+        "name": "Avangrd",
+        "query": "is:promo a:j o:/hat.{26,29}\\./ ne "
+    },
+    {
+        "length": 37,
+        "name": "charlequin",
+        "query": "name:/in.{2,5}o..$/ t:en a:j is:promo"
+    },
+    {
+        "length": 40,
+        "name": "DoubleFried",
+        "query": "is:promo name:/i.*in.* .?o..$/ o:arg t:c"
+    },
+    {
+        "length": 43,
+        "name": "charlequin",
+        "query": "a:j is:prere name:/i.*in.*o/ type:/en.*a.t/"
+    },
+    {
+        "length": 53,
+        "name": "Franckie__",
+        "query": "o is:promo id:rb -c:C a:j a:el ( o:target o:\"to the\")"
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "length": 32,
+        "name": "cjcsuhta",
+        "query": "o:+ ft:/\u2014[rk]a.*?a.*?d/ ft:/d\\./"
+    },
+    {
+        "length": 41,
+        "name": "charlequin",
+        "query": "o:gets a:p ci:gb ft:/w.{4,6}i.{4,6}d/ t:r"
+    }
+]

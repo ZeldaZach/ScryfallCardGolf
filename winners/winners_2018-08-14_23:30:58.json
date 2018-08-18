@@ -1,0 +1,12 @@
+[
+    {
+        "length": 35,
+        "name": "DoubleFried",
+        "query": "name:/^w.{9}$/ o:/re.... .*ar.\\./ d"
+    },
+    {
+        "length": 62,
+        "name": "charlequin",
+        "query": "name:/^w.*d/ name:/r.?.?$/ c:w o:han a:i r e year<2009 t:/r.$/"
+    }
+]

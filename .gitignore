@@ -10,7 +10,6 @@ build/
 dist/
 *.pyc
 *.csv
-winners/
 .*_cache/
 .tox/
 test_results/

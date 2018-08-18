@@ -108,7 +108,7 @@ def download_and_save_card_images(cards: List[Dict[str, Any]]) -> None:
     for card in cards:
         card_image_url: str = card['image_uris']['png']
         request_image = download_contents(card_image_url, 'image')
-        with open(os.path.join(TEMP_CARD_DIR, '{}.png'.format(card['name'].replace('//', '_')), 'wb')) as out_file:
+        with open(os.path.join(TEMP_CARD_DIR, '{}.png'.format(card['name'].replace('//', '_'))), 'wb') as out_file:
             shutil.copyfileobj(request_image.raw, out_file)
         logging.info('Saving image of card {}'.format(card['name']))
 

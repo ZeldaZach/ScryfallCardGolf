@@ -1,0 +1,42 @@
+[
+    {
+        "length": 14,
+        "name": "NilsEnevoldsen",
+        "query": "ft:/rp.*ar\./h"
+    },
+    {
+        "length": 15,
+        "name": "DoubleFried",
+        "query": "ft:/rp.*ar\./ h"
+    },
+    {
+        "length": 16,
+        "name": "Nobodi64",
+        "query": "ft:ar. ft:rp c:r"
+    },
+    {
+        "length": 16,
+        "name": "TTMiguelTT",
+        "query": "ft:/ds.*ay.*har/"
+    },
+    {
+        "length": 16,
+        "name": "NilsEnevoldsen",
+        "query": "ft:/k.*rp.*ar\./"
+    },
+    {
+        "length": 21,
+        "name": "DoubleFried",
+        "query": "name:/a.h/ ft:/ar\.$/"
+    },
+    {
+        "length": 22,
+        "name": "distilledhijinx",
+        "query": "ft:ar. o:en ft:way c:r"
+    },
+    {
+        "length": 53,
+        "name": "patricklickman",
+        "query": "c:r o:er -t:an -o:ny ft:ay ft:ar ft:is date>2013 -o:,"
+    }
+]
