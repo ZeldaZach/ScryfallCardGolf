@@ -36,7 +36,7 @@ def download_contents(url: str, download_type: str = 'json') -> Any:
     if download_type == 'json':
         request_response = requests.get(url=url).json()
     elif download_type == 'image':
-        request_response = requests.get(url, stream=True)
+        request_response = requests.get(url=url, stream=True)
 
     logging.info('Downloaded URL {}'.format(url))
     return request_response
@@ -218,7 +218,7 @@ def test_query(user_name: str, scryfall_url: str) -> str:
     try:
         query: str = urlparse.parse_qs(urlparse.urlparse(scryfall_url).query)['q'][0]
 
-        scryfall_api_url = 'https://api.scryfall.com/cards/search?q={}'.format(query)
+        scryfall_api_url = 'https://api.scryfall.com/cards/search?q={}'.format(urlparse.quote_plus(query))
         response: Dict[str, Any] = download_contents(scryfall_api_url)
 
         if response['total_cards'] != 2:
