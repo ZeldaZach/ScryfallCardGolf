@@ -1,0 +1,37 @@
+[
+    {
+        "length": 16,
+        "name": "DollarCommander",
+        "query": "k ta -s -o:s c=u"
+    },
+    {
+        "length": 17,
+        "name": "DollarCommander",
+        "query": "k -l ta c:u ft:em"
+    },
+    {
+        "length": 18,
+        "name": "wrathofanima",
+        "query": "c=u ft:sel k ta -o"
+    },
+    {
+        "length": 18,
+        "name": "Nobodi64",
+        "query": "ta k -c ft:sel c:u"
+    },
+    {
+        "length": 19,
+        "name": "maxmichel123",
+        "query": "ft:/em.*t.{6}st o/t"
+    },
+    {
+        "length": 23,
+        "name": "DoubleFried",
+        "query": "name:/^t.*k.?$/ft:ee ta"
+    },
+    {
+        "length": 25,
+        "name": "cjcsuhta",
+        "query": "name:/^t[^l]+ke?$/ ft:sel"
+    }
+]
