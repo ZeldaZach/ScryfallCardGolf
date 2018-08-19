@@ -238,7 +238,7 @@ def test_query(user_name: str, scryfall_url: str) -> str:
 
         # Correct response!
         logging.info('{} was correct! [ {} ] ({})'.format(user_name, query, len(query)))
-        return query
+        return urlparse.unquote(query)
     except KeyError:
         logging.info('{} submitted a bad Scryfall URL: {}'.format(user_name, scryfall_url))
         return ''
