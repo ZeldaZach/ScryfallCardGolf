@@ -1,0 +1,32 @@
+[
+    {
+        "length": 20,
+        "name": "wrathofanima",
+        "query": "G s H ci:r a:as t:no"
+    },
+    {
+        "length": 20,
+        "name": "DollarCommander",
+        "query": "a:as t:no g h s ci:r"
+    },
+    {
+        "length": 27,
+        "name": "charlequin",
+        "query": "t:no o:/at.?.?h.* .nt/ ci:r"
+    },
+    {
+        "length": 30,
+        "name": "Teferi92",
+        "query": "f:m ci:r o:/t.*:.*o/ t:no a:as"
+    },
+    {
+        "length": 32,
+        "name": "maxmichel123",
+        "query": "o:/at.{32}f t/name:/n.+h.+s/-k g"
+    },
+    {
+        "length": 41,
+        "name": "charlequin",
+        "query": "a:as t:no o:: o:/at.?.?h.* .nt/ o:th ci:r"
+    }
+]
