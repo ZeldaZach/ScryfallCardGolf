@@ -1,0 +1,37 @@
+[
+    {
+        "length": 15,
+        "name": "Mark_Confidant",
+        "query": "t:/e.i/rid o:rg"
+    },
+    {
+        "length": 15,
+        "name": "DollarCommander",
+        "query": "t:/e.i/rid -a:e"
+    },
+    {
+        "length": 16,
+        "name": "Mark_Confidant",
+        "query": "rid t:/e.i/ o:rg"
+    },
+    {
+        "length": 17,
+        "name": "Mark_Confidant",
+        "query": " t:/e.i/ rid o:rg"
+    },
+    {
+        "length": 17,
+        "name": "alcarithemad",
+        "query": "t:/e.i/ rid o:tar"
+    },
+    {
+        "length": 18,
+        "name": "cjcsuhta",
+        "query": "ft:/[uk]ly/ri l -g"
+    },
+    {
+        "length": 20,
+        "name": "wrathofanima",
+        "query": "rid ft:ng l a t o:rg"
+    }
+]
