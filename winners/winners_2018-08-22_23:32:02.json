@@ -1,0 +1,32 @@
+[
+    {
+        "length": 19,
+        "name": "peterpanik2222",
+        "query": "ft:/en.{16}e.$/t:ma"
+    },
+    {
+        "length": 19,
+        "name": "DollarCommander",
+        "query": "ft:/com.+rd?e.$/t:g"
+    },
+    {
+        "length": 20,
+        "name": "Teferi92",
+        "query": "re n t:g t:ma ft:spe"
+    },
+    {
+        "length": 21,
+        "name": "Mark_Confidant",
+        "query": "ft:/e.?spe.*ti.*re/re"
+    },
+    {
+        "length": 21,
+        "name": "Granipouss",
+        "query": "re t:ma ft:spe t:g -m"
+    },
+    {
+        "length": 23,
+        "name": "Mark_Confidant",
+        "query": "ft:/d.?.?ge.?o/g t:g -d"
+    }
+]
