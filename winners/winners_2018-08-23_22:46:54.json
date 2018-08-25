@@ -1,0 +1,22 @@
+[
+    {
+        "length": 18,
+        "name": "peterpanik2222",
+        "query": "ft:/^.{19}th /th u"
+    },
+    {
+        "length": 19,
+        "name": "DollarCommander",
+        "query": "o:/e h/ft:/wi.+one/"
+    },
+    {
+        "length": 21,
+        "name": "Granipouss",
+        "query": "name:/m.*m.n/th a c:w"
+    },
+    {
+        "length": 28,
+        "name": "TheCommieDuck",
+        "query": " ft:/ai.+one/cmc>4 -a:r c:w "
+    }
+]
