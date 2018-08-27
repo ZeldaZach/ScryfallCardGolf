@@ -234,7 +234,7 @@ def test_query(user_name: str, scryfall_url: str) -> str:
 
         if 'or' in query.lower():
             logging.info("{} was correct, but they used 'OR': {}".format(user_name, query))
-            return ''
+            return urlparse.unquote(query)
 
         # Correct response!
         logging.info('{} was correct! [ {} ] ({})'.format(user_name, query, len(query)))
