@@ -1,0 +1,37 @@
+[
+    {
+        "length": 17,
+        "name": "Teferi92",
+        "query": "a:mn r:r cmc<2i o"
+    },
+    {
+        "length": 18,
+        "name": "distilledhijinx",
+        "query": "a:mn r:r cmc<2 o e"
+    },
+    {
+        "length": 19,
+        "name": "peterpanik2222",
+        "query": "a:mn r:r -t:c -u -r"
+    },
+    {
+        "length": 25,
+        "name": "DoubleFried",
+        "query": "a:mn year=2005 cmc<=1 r:r"
+    },
+    {
+        "length": 25,
+        "name": "WNivek",
+        "query": "t:/an.$/ id:wb a:mn -o:re"
+    },
+    {
+        "length": 25,
+        "name": "distilledhijinx",
+        "query": "a:mn r:r lore:os cmc<2 -d"
+    },
+    {
+        "length": 28,
+        "name": "WNivek",
+        "query": "t:/an.$/ id:wb a:\"m n\" -o:re"
+    }
+]
