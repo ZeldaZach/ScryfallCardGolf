@@ -1,0 +1,47 @@
+[
+    {
+        "length": 18,
+        "name": "DoubleFried",
+        "query": "er io o:pp f:s m:2"
+    },
+    {
+        "length": 19,
+        "name": "DoubleFried",
+        "query": "er tio o:pp f:s t:m"
+    },
+    {
+        "length": 20,
+        "name": "DoubleFried",
+        "query": "er tio o:pp t:an t:m"
+    },
+    {
+        "length": 20,
+        "name": "wrathofanima",
+        "query": "m:2 t:an o:pp tio er"
+    },
+    {
+        "length": 21,
+        "name": "distilledhijinx",
+        "query": "m:2 er tio o:op ci:wb"
+    },
+    {
+        "length": 21,
+        "name": "DoubleFried",
+        "query": "er tion o:pp t:an t:m"
+    },
+    {
+        "length": 21,
+        "name": "wrathofanima",
+        "query": "m:2 t:an o:opp tio er"
+    },
+    {
+        "length": 22,
+        "name": "DoubleFried",
+        "query": "er tion o:opp t:an t:m"
+    },
+    {
+        "length": 47,
+        "name": "wobbles",
+        "query": "tion cmc<5 cmc>2 o:enters o:opponent f:standard"
+    }
+]
