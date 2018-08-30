@@ -1,0 +1,32 @@
+[
+    {
+        "length": 17,
+        "name": "Teferi92",
+        "query": "o:ry a:tt tou=2ch"
+    },
+    {
+        "length": 18,
+        "name": "DoubleFried",
+        "query": "ch o:ry a:tt tou=2"
+    },
+    {
+        "length": 19,
+        "name": "DoubleFried",
+        "query": "ch o:fly a:tt tou=2"
+    },
+    {
+        "length": 20,
+        "name": "DoubleFried",
+        "query": "ch o:fly a:ott tou=2"
+    },
+    {
+        "length": 26,
+        "name": "TheElk801",
+        "query": "fo:\"at the t\" c=u ch cmc=4"
+    },
+    {
+        "length": 32,
+        "name": "TheElk801",
+        "query": "fo:\"at the t\" m:3u name:ch cmc=4"
+    }
+]
