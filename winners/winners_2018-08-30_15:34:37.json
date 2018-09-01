@@ -1,0 +1,62 @@
+[
+    {
+        "length": 22,
+        "name": "DoubleFried",
+        "query": "fo:/w.*s.x/t:tan a:h n"
+    },
+    {
+        "length": 23,
+        "name": "DoubleFried",
+        "query": "fo:/w(ith )?s.x/o t:tan"
+    },
+    {
+        "length": 24,
+        "name": "DoubleFried",
+        "query": "fo:/s.x/name:/^.y?t.?o/n"
+    },
+    {
+        "length": 24,
+        "name": "peterpanik2222",
+        "query": "fo:/w(ith )?s.x/a:h t:ta"
+    },
+    {
+        "length": 26,
+        "name": "DoubleFried",
+        "query": "fo:/s.x/n name:/^..?t/t:ta"
+    },
+    {
+        "length": 27,
+        "name": "DoubleFried",
+        "query": "fo:/s.x/e name:/t.?o.{5} /s"
+    },
+    {
+        "length": 27,
+        "name": "TheElk801",
+        "query": "t:ta a:h a:s -a:c fo:/s.x/n"
+    },
+    {
+        "length": 30,
+        "name": "TheElk801",
+        "query": "type:ta a:h a:s -a:c fo:/s.x/n"
+    },
+    {
+        "length": 30,
+        "name": "distilledhijinx",
+        "query": "lore:aft fo:\"x \"a:an t:nt -r:u"
+    },
+    {
+        "length": 31,
+        "name": "distilledhijinx",
+        "query": "t:ant lore:tal fo:x lore:aft -d"
+    },
+    {
+        "length": 31,
+        "name": "TheElk801",
+        "query": "n type:ta a:h a:s -a:c fo:/s.x/"
+    },
+    {
+        "length": 32,
+        "name": "TheElk801",
+        "query": "t:ta a:h a:s -a:c fo:/s.x/n -r:u"
+    }
+]
