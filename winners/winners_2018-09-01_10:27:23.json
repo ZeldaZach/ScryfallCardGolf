@@ -1,0 +1,27 @@
+[
+    {
+        "length": 25,
+        "name": "DoubleFried",
+        "query": "name:/^...r.*d.*lv?e?$/te"
+    },
+    {
+        "length": 28,
+        "name": "DoubleFried",
+        "query": "name:/^...r.*lv?e?$/r:u te s"
+    },
+    {
+        "length": 29,
+        "name": "TheElk801",
+        "query": "name:/r.*d.*l/s p te r:u -a:h"
+    },
+    {
+        "length": 30,
+        "name": "TheElk801",
+        "query": "name:/r.*d.*l/s p -f -m te r:u"
+    },
+    {
+        "length": 37,
+        "name": "TheElk801",
+        "query": "name:/r.*t.*e.*d.*l/l s p -b -f -m te"
+    }
+]
