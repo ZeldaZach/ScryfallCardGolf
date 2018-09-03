@@ -1,0 +1,27 @@
+[
+    {
+        "length": 21,
+        "name": "DoubleFried",
+        "query": "ir m o:\" to\"cmc<2o:fe"
+    },
+    {
+        "length": 21,
+        "name": "DelverGoGaming",
+        "query": "a:nd ir -s cmc<2 o:fe"
+    },
+    {
+        "length": 23,
+        "name": "DelverGoGaming",
+        "query": "a:and id<=b ir cmc<2 -s"
+    },
+    {
+        "length": 27,
+        "name": "DoubleFried",
+        "query": "ir m a:an t:an o:\" to\"cmc<2"
+    },
+    {
+        "length": 28,
+        "name": "DoubleFried",
+        "query": "ir t:an a:an m cmc<2 o:\" to\""
+    }
+]
