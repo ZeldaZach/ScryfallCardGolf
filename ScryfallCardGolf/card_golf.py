@@ -3,6 +3,7 @@ import datetime
 import glob
 import json
 import os
+import re
 import time
 
 import PIL.Image
@@ -12,7 +13,7 @@ import requests
 
 from ScryfallCardGolf import logging, TEMP_CARD_DIR, SCRYFALL_RANDOM_URL, twitter_api, TWEET_DATABASE, WINNING_DIR
 
-from typing import Dict, Any, List, Union, Iterator
+from typing import Dict, Any, List, Iterator, Tuple
 import TwitterAPI
 
 
@@ -146,26 +147,26 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
     return save_url
 
 
-def write_to_json_db(file_name: str, entry: Union[List[Dict[str, Any]], Dict[str, Any]]) -> None:
+def write_to_json_db(file_name: str, entry: Any, database: bool = False) -> None:
     """
     Write out a dictionary into the json database
     :param file_name: Database location
     :param entry: New dictionary entry to add
+    :param database: Write to database
     """
-    feeds: Any = []
-    if isinstance(entry, dict):
-        feeds = {}
+    feeds: Dict[str, Any] = {}
+    if database:
         if os.path.isfile(file_name):
             with open(file_name) as json_feed:
                 feeds = json.load(json_feed)
-
         feeds[time.strftime('%Y-%m-%d_%H:%M:%S')] = entry
-    elif isinstance(entry, list):
-        feeds = sorted(entry, key=extract_query_length, reverse=False)
+    else:
+        feeds['standard'] = sorted(entry[0], key=extract_query_length, reverse=False)
+        feeds['regex'] = sorted(entry[1], key=extract_query_length, reverse=False)
 
     with open(file_name, mode='w') as f:
         # For some reason, backslashes appear as \\ instead of \. This fixes it :(
-        f.write(json.dumps(feeds, indent=4, sort_keys=True).replace("\\\\", "\\"))
+        f.write(json.dumps(feeds, indent=4, sort_keys=True))
 
 
 def load_json_db(file_name: str) -> Any:
@@ -232,8 +233,8 @@ def test_query(user_name: str, scryfall_url: str) -> str:
                 logging.info('{} result has wrong card: {}'.format(user_name, card['name']))
                 return ''
 
-        if 'or' in query.lower():
-            logging.info("{} was correct, but they used 'OR': {}".format(user_name, query))
+        if ' or ' in query.lower():
+            logging.info("{} was correct, but they may have used 'OR': {}".format(user_name, query))
             return urlparse.unquote(query)
 
         # Correct response!
@@ -244,12 +245,13 @@ def test_query(user_name: str, scryfall_url: str) -> str:
         return ''
 
 
-def get_results() -> List[Dict[str, Any]]:
+def get_results() -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
     """
     Get the results from the competition and print it out
     :return: Winner's name and their query
     """
-    valid_entries: List[Dict[str, Any]] = []
+    valid_normal_entries: List[Dict[str, Any]] = []
+    valid_regex_entries: List[Dict[str, Any]] = []
 
     logging.info('GET RESULTS')
 
@@ -275,16 +277,21 @@ def get_results() -> List[Dict[str, Any]]:
             logging.info('{} submitted solution: {}'.format(item['user']['screen_name'], test_url))
             test_query_results = test_query(item['user']['screen_name'], test_url)
             if test_query_results:
-                valid_entries.append({
+                user_json_entry: Dict[str, str] = {
                     'name': item['user']['screen_name'],
                     'length': len(test_query_results),
                     'query': test_query_results
-                })
+                }
 
-    return valid_entries
+                if re.search(r'/.+/', test_query_results):
+                    valid_regex_entries.append(user_json_entry)
+                else:
+                    valid_normal_entries.append(user_json_entry)
+
+    return valid_normal_entries, valid_regex_entries
 
 
-def write_results(results: List[Dict[str, Any]]) -> None:
+def write_results(results: Tuple[List[Dict[str, str]], List[Dict[str, str]]]) -> None:
     """
     Take a list of results and put it to the winners file for that contest
     :param results: List of winners
@@ -338,7 +345,7 @@ def start_game(force_new: bool = False) -> None:
         }],
     }
 
-    write_to_json_db(TWEET_DATABASE, json_entry)
+    write_to_json_db(TWEET_DATABASE, json_entry, True)
 
 
 def main() -> None:
@@ -349,8 +356,7 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.results:
-        correct_users = get_results()
-        write_results(correct_users)
+        write_results(get_results())
         return
 
     start_game(args.force_new)
