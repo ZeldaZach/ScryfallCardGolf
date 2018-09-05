@@ -1,17 +1,20 @@
-[
-    {
-        "length": 22,
-        "name": "peterpanik2222",
-        "query": "name:/^..r.{7}a..$/u i"
-    },
-    {
-        "length": 32,
-        "name": "TheElk801",
-        "query": "o:/p.l.*\d/a:on i l u r -o -o:ca"
-    },
-    {
-        "length": 40,
-        "name": "TheElk801",
-        "query": "o:/p.l.*\d/a:on i l u r -c -o -p t:i -rr"
-    }
-]
+{
+    "regex": [
+        {
+            "length": 22,
+            "name": "peterpanik2222",
+            "query": "name:/^..r.{7}a..$/u i"
+        },
+        {
+            "length": 32,
+            "name": "TheElk801",
+            "query": "o:/p.l.*\\d/a:on i l u r -o -o:ca"
+        },
+        {
+            "length": 40,
+            "name": "TheElk801",
+            "query": "o:/p.l.*\\d/a:on i l u r -c -o -p t:i -rr"
+        }
+    ],
+    "standard": []
+}
