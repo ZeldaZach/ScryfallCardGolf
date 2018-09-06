@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 21,
+            "name": "peterpanik2222",
+            "query": "ft:/^.{5}e.{48}$/o:'s"
+        }
+    ],
+    "standard": [
+        {
+            "length": 20,
+            "name": "peterpanik2222",
+            "query": "o:'s ft:yt a:b -u -n"
+        },
+        {
+            "length": 34,
+            "name": "charlequin",
+            "query": "a:w c=1 ci:ru t:t ft:thi cmc:3 a:b"
+        }
+    ]
+}
