@@ -1,0 +1,31 @@
+{
+    "regex": [
+        {
+            "length": 25,
+            "name": "TheElk801",
+            "query": "ft:/he.r/tou>3cmc=6v m=ww"
+        }
+    ],
+    "standard": [
+        {
+            "length": 19,
+            "name": "AndrewZwicky",
+            "query": "r:r c=w v t:b -f -c"
+        },
+        {
+            "length": 24,
+            "name": "distilledhijinx",
+            "query": "m:ww tou>pow is:old v -t"
+        },
+        {
+            "length": 30,
+            "name": "charlequin",
+            "query": "cmc=6 c=w ft:w v year<2003 a:t"
+        },
+        {
+            "length": 35,
+            "name": "thegreenrobby",
+            "query": "c:w -f:modern cmc:6 ft:w -o:, a:t v"
+        }
+    ]
+}
