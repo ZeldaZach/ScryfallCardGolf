@@ -1,20 +1,41 @@
+from typing import Dict, Any, List, Iterator, Tuple
+import PIL.Image
+import TwitterAPI
 import argparse
+import configparser
 import datetime
 import glob
 import json
+import logging
 import os
 import re
-import time
-
-import PIL.Image
-import urllib.parse as urlparse
-import shutil
 import requests
+import shutil
+import time
+import urllib.parse as urlparse
 
-from ScryfallCardGolf import logging, TEMP_CARD_DIR, SCRYFALL_RANDOM_URL, twitter_api, TWEET_DATABASE, WINNING_DIR
+# System Configuration
+config = configparser.RawConfigParser()
 
-from typing import Dict, Any, List, Iterator, Tuple
-import TwitterAPI
+
+def load_config(config_path: str) -> None:
+    """
+    Initialize the system configs
+    :param config_path: path to load config properties from
+    """
+    # Open and read secret properties
+    config.read(config_path)
+
+    # Logging configuration
+    logging.basicConfig(
+        level=logging.INFO,
+        format='[%(levelname)s] %(asctime)s: %(message)s',
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(
+                str(config.get('scryfallCardGolf', 'LOGGING_DIR')) + 'card_golf_' +
+                str(time.strftime('%Y-%m-%d_%H:%M:%S')) + '.log')
+        ])
 
 
 def extract_query_length(json_dict: Dict[str, str]) -> int:
@@ -47,7 +68,7 @@ def delete_temp_cards() -> None:
     """
     Delete the PNG images in the image folder
     """
-    for card in glob.glob(os.path.join(TEMP_CARD_DIR, '*.png')):
+    for card in glob.glob(os.path.join(config.get('scryfallCardGolf', 'TEMP_CARD_DIR'), '*.png')):
         logging.info('Deleting file {}'.format(card))
         os.remove(card)
 
@@ -58,7 +79,7 @@ def download_random_cards(number_of_cards: int) -> List[Dict[str, Any]]:
     :param number_of_cards: How many cards to play with
     :return: List of card objects requested
     """
-    return [download_contents(SCRYFALL_RANDOM_URL) for _ in range(number_of_cards)]
+    return [download_contents(config.get('scryfallCardGolf', 'SCRYFALL_RANDOM_URL')) for _ in range(number_of_cards)]
 
 
 def resize_image(url_to_open: str) -> None:
@@ -84,6 +105,13 @@ def send_tweet(message_to_tweet: str, url_to_media: str) -> int:
     :return: Tweet ID (-1 if it failed)
     :raises Exception: Tweet failed to send for some reason
     """
+    twitter_api = TwitterAPI.TwitterAPI(
+        config.get('twitter', 'CONSUMER_KEY'),
+        config.get('twitter', 'CONSUMER_SECRET'),
+        config.get('twitter', 'ACCESS_TOKEN_KEY'),
+        config.get('twitter', 'ACCESS_TOKEN_SECRET'),
+    )
+
     logging.info('Tweet to send: {}'.format(message_to_tweet))
     try:
         if url_to_media is not None:
@@ -109,7 +137,10 @@ def download_and_save_card_images(cards: List[Dict[str, Any]]) -> None:
     for card in cards:
         card_image_url: str = card['image_uris']['png']
         request_image = download_contents(card_image_url, 'image')
-        with open(os.path.join(TEMP_CARD_DIR, '{}.png'.format(card['name'].replace('//', '_'))), 'wb') as out_file:
+        with open(
+                os.path.join(
+                    config.get('scryfallCardGolf', 'TEMP_CARD_DIR'), '{}.png'.format(card['name'].replace('//', '_'))),
+                'wb') as out_file:
             shutil.copyfileobj(request_image.raw, out_file)
         logging.info('Saving image of card {}'.format(card['name']))
 
@@ -122,7 +153,7 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
     :param cards: Cards to merge into one image
     :return: Resting URL of merged image
     """
-    cards_to_merge: List[str] = glob.glob(os.path.join(TEMP_CARD_DIR, '*.png'))
+    cards_to_merge: List[str] = glob.glob(os.path.join(config.get('scryfallCardGolf', 'TEMP_CARD_DIR'), '*.png'))
 
     images: Iterator[Any] = map(PIL.Image.open, cards_to_merge)
     widths, heights = zip(*(i.size for i in images))
@@ -139,7 +170,7 @@ def merge_card_images(cards: List[Dict[str, Any]]) -> str:
         x_offset += im.size[0]
 
     combined_name: str = '{}-{}.png'.format(cards[0]['name'].replace('/', '_'), cards[1]['name'].replace('/', '_'))
-    save_url: str = os.path.join(TEMP_CARD_DIR, combined_name)
+    save_url: str = os.path.join(config.get('scryfallCardGolf', 'TEMP_CARD_DIR'), combined_name)
 
     new_im.save(save_url)
     logging.info('Saved merged image to {}'.format(save_url))
@@ -189,7 +220,7 @@ def is_active_contest_already(force_new_contest: bool) -> bool:
     :return: Active contest status
     """
     # See if a current contest is active
-    json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
+    json_db: Dict[str, Any] = load_json_db(config.get('scryfallCardGolf', 'TWEET_DATABASE'))
     try:
         max_key: str = max(json_db.keys())
     except ValueError:
@@ -225,7 +256,7 @@ def test_query(user_name: str, scryfall_url: str) -> str:
         if response['total_cards'] != 2:
             logging.info('{} result has wrong number of cards: {}'.format(user_name, response['total_cards']))
 
-        json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
+        json_db: Dict[str, Any] = load_json_db(config.get('scryfallCardGolf', 'TWEET_DATABASE'))
         max_key: str = max(json_db.keys())
         valid_cards: List[str] = [json_db[max_key]['cards'][0]['name'], json_db[max_key]['cards'][1]['name']]
         for card in response['data']:
@@ -250,12 +281,19 @@ def get_results() -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
     Get the results from the competition and print it out
     :return: Winner's name and their query
     """
+    twitter_api = TwitterAPI.TwitterAPI(
+        config.get('twitter', 'CONSUMER_KEY'),
+        config.get('twitter', 'CONSUMER_SECRET'),
+        config.get('twitter', 'ACCESS_TOKEN_KEY'),
+        config.get('twitter', 'ACCESS_TOKEN_SECRET'),
+    )
+
     valid_normal_entries: List[Dict[str, Any]] = []
     valid_regex_entries: List[Dict[str, Any]] = []
 
     logging.info('GET RESULTS')
 
-    json_db: Dict[str, Any] = load_json_db(TWEET_DATABASE)
+    json_db: Dict[str, Any] = load_json_db(config.get('scryfallCardGolf', 'TWEET_DATABASE'))
     max_key: str = max(json_db.keys())
 
     r = TwitterAPI.TwitterPager(twitter_api, 'statuses/mentions_timeline', {
@@ -265,7 +303,7 @@ def get_results() -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
 
     for item in r.get_iterator():
         if 'text' not in item:
-            logging.warning('SUSPEND, RATE LIMIT EXCEEDED: %s\n' % item['message'])
+            logging.warning('SUSPEND, RATE LIMIT EXCEEDED: ' + item['message'])
             break
 
         logging.info('[TWEET] ' + item['user']['screen_name'] + ': ' + item['text'])
@@ -277,7 +315,7 @@ def get_results() -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
             logging.info('{} submitted solution: {}'.format(item['user']['screen_name'], test_url))
             test_query_results = test_query(item['user']['screen_name'], test_url)
             if test_query_results:
-                user_json_entry: Dict[str, str] = {
+                user_json_entry: Dict[str, Any] = {
                     'name': item['user']['screen_name'],
                     'length': len(test_query_results),
                     'query': test_query_results
@@ -296,8 +334,9 @@ def write_results(results: Tuple[List[Dict[str, str]], List[Dict[str, str]]]) ->
     Take a list of results and put it to the winners file for that contest
     :param results: List of winners
     """
-    file_key: str = max(load_json_db(TWEET_DATABASE).keys())
-    write_to_json_db(os.path.join(WINNING_DIR, 'winners_{}.json'.format(file_key)), results)
+    file_key: str = max(load_json_db(config.get('scryfallCardGolf', 'TWEET_DATABASE')).keys())
+    write_to_json_db(
+        os.path.join(config.get('scryfallCardGolf', 'WINNING_DIR'), 'winners_{}.json'.format(file_key)), results)
 
 
 def start_game(force_new: bool = False) -> None:
@@ -345,15 +384,17 @@ def start_game(force_new: bool = False) -> None:
         }],
     }
 
-    write_to_json_db(TWEET_DATABASE, json_entry, True)
+    write_to_json_db(config.get('scryfallCardGolf', 'TWEET_DATABASE'), json_entry, True)
 
 
 def main() -> None:
     parser: argparse.ArgumentParser = argparse.ArgumentParser(description='Handle Scryfall Card Golf')
+    parser.add_argument('--config', type=str, required=True, nargs='?', help='config for system')
     parser.add_argument('--results', action='store_true', help='get latest contest results')
     parser.add_argument('--force-new', action='store_true', help='force start next contest')
 
     args = parser.parse_args()
+    load_config(args.config)
 
     if args.results:
         write_results(get_results())
