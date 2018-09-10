@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 14,
+            "name": "TheElk801",
+            "query": "ch ft:appe a:m"
+        },
+        {
+            "length": 25,
+            "name": "TheElk801",
+            "query": "ch t:s ft:pp c<gu a:m a:o"
+        }
+    ]
+}
