@@ -1,0 +1,41 @@
+{
+    "regex": [
+        {
+            "length": 18,
+            "name": "peterpanik2222",
+            "query": "o:/l,.+at.{63}$/on"
+        },
+        {
+            "length": 22,
+            "name": "JRandomHacker",
+            "query": "o:/\\/.2/ on t:ar a:f t"
+        }
+    ],
+    "standard": [
+        {
+            "length": 20,
+            "name": "AndrewZwicky",
+            "query": "o:2 o:mp on -a:o a:f"
+        },
+        {
+            "length": 20,
+            "name": "DelverGoGaming",
+            "query": "a:f on o:1 o:2/ o:am"
+        },
+        {
+            "length": 21,
+            "name": "AndrewZwicky",
+            "query": "o:2 o:mpl on -a:o a:f"
+        },
+        {
+            "length": 26,
+            "name": "TheElk801",
+            "query": "o:2/ o:mp t:ar a:l ci:b -g"
+        },
+        {
+            "length": 30,
+            "name": "TheElk801",
+            "query": "o:2/ o:ram t:ar a:l ci:b -o:ha"
+        }
+    ]
+}

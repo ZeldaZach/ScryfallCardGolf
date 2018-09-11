@@ -1,0 +1,31 @@
+{
+    "regex": [
+        {
+            "length": 28,
+            "name": "TheElk801",
+            "query": "name:/u.*r.*r/t:y a:dan c<rg"
+        }
+    ],
+    "standard": [
+        {
+            "length": 19,
+            "name": "peterpanik2222",
+            "query": "a:nsc -o u t:y o:rg"
+        },
+        {
+            "length": 26,
+            "name": "Teferi92",
+            "query": "a:ans o:arg r<r d r t e  u"
+        },
+        {
+            "length": 27,
+            "name": "AndrewZwicky",
+            "query": "a:\"n sc\" t:y r<r c<rg -o -h"
+        },
+        {
+            "length": 68,
+            "name": "InkStainedCards",
+            "query": "-f (a:da a:sc) (-t:n -t:f) cmc>=3 cmc<=4 (-c:W -c:U -c:B) o:tar -r:r"
+        }
+    ]
+}
