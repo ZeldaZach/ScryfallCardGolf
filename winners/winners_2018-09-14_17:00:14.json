@@ -1,0 +1,26 @@
+{
+    "regex": [
+        {
+            "length": 16,
+            "name": "DoubleFried",
+            "query": "ft:/lack?.{9}$/o"
+        },
+        {
+            "length": 17,
+            "name": "DelverGoGaming",
+            "query": "ft:/its\\sw.*lac/o"
+        },
+        {
+            "length": 19,
+            "name": "DelverGoGaming",
+            "query": "ft:/ts.*w.l.*lac/ o"
+        }
+    ],
+    "standard": [
+        {
+            "length": 49,
+            "name": "InkStainedCards",
+            "query": "commander:WR t:st ft:its a:v f:m -f:s -i -o:me -y"
+        }
+    ]
+}

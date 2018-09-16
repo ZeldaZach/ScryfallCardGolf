@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 25,
+            "name": "JRandomHacker",
+            "query": "o:/h.{33}t[\\n-z]{27}et/-e"
+        },
+        {
+            "length": 26,
+            "name": "JRandomHacker",
+            "query": "o:/h.{33}t[\\n-z]{26}get/-e"
+        }
+    ],
+    "standard": [
+        {
+            "length": 22,
+            "name": "AndrewZwicky",
+            "query": "r f u -e m:2 fo:\"ay c\""
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 14,
+            "name": "DelverGoGaming",
+            "query": "is r a:ke co y"
+        },
+        {
+            "length": 15,
+            "name": "AndrewZwicky",
+            "query": "co is y -t a:ke"
+        },
+        {
+            "length": 20,
+            "name": "DelverGoGaming",
+            "query": "is ft:w r a:ke co -g"
+        }
+    ]
+}

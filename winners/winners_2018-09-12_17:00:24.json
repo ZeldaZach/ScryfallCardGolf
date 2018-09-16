@@ -1,0 +1,36 @@
+{
+    "regex": [
+        {
+            "length": 16,
+            "name": "DoubleFried",
+            "query": "ft:/s ..tr?u/tor"
+        },
+        {
+            "length": 18,
+            "name": "peterpanik2222",
+            "query": "ft:/ou. ..d.+p/tor"
+        },
+        {
+            "length": 20,
+            "name": "AndrewZwicky",
+            "query": "tor ft:/ou.*[-x]p/-c"
+        },
+        {
+            "length": 27,
+            "name": "AndrewZwicky",
+            "query": "\"or\" ft:/ou.*[-x]p[he]/ a:g"
+        }
+    ],
+    "standard": [
+        {
+            "length": 26,
+            "name": "DelverGoGaming",
+            "query": "t:or o:car ft:ou -d -c tor"
+        },
+        {
+            "length": 31,
+            "name": "DelverGoGaming",
+            "query": "tor t:or o:car ft:ou ft:p -d -c"
+        }
+    ]
+}
