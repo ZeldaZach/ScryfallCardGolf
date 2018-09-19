@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 20,
+            "name": "peterpanik2222",
+            "query": "o:/o[wa].{85}$/a:w h"
+        },
+        {
+            "length": 23,
+            "name": "DoubleFried",
+            "query": "name:/n.$/o:\"u \"th a:we"
+        }
+    ],
+    "standard": [
+        {
+            "length": 17,
+            "name": "AndrewZwicky",
+            "query": "\"th \" a:w o:ss -s"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "regex": [
+        {
+            "length": 28,
+            "name": "DelverGoGaming",
+            "query": "t:ar tou=1 name:/l.$/a:er -b"
+        }
+    ],
+    "standard": [
+        {
+            "length": 17,
+            "name": "TheElk801",
+            "query": "\"-\"pt:2t:f ft:p a"
+        },
+        {
+            "length": 21,
+            "name": "TheElk801",
+            "query": "\"-\"pow:1ci:g -t -o:er"
+        },
+        {
+            "length": 23,
+            "name": "patricklickman",
+            "query": "\"-\" pow:1 ci:g -t -o:er"
+        }
+    ]
+}
