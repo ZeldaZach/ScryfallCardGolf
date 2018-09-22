@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 24,
+            "name": "peterpanik2222",
+            "query": "o:/:.+te.+re.$/fo:\"(\"f s"
+        }
+    ],
+    "standard": []
+}

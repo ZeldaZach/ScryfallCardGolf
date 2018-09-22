@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 13,
+            "name": "DoubleFried",
+            "query": "a:ug fo:fiv u"
+        },
+        {
+            "length": 13,
+            "name": "AndrewZwicky",
+            "query": "a:ug fo:fiv o"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "regex": [
+        {
+            "length": 19,
+            "name": "peterpanik2222",
+            "query": "ft:/n .{21}y\\./pt:2"
+        },
+        {
+            "length": 46,
+            "name": "TheElk801",
+            "query": "pt:2t:er t:n o:ri a:d r:c -f -o:/,.*:/-fo:w -z"
+        }
+    ],
+    "standard": [
+        {
+            "length": 23,
+            "name": "TheElk801",
+            "query": "pt:2a:nd ft:\"y.\"t:er -c"
+        },
+        {
+            "length": 29,
+            "name": "patricklickman",
+            "query": "pt:2a:nd ft:\"y.\"-o:an t:er -c"
+        }
+    ]
+}
