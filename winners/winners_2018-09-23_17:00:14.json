@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 27,
+            "name": "TheElk801",
+            "query": "t:ar c<ur ce o:/:.*da/-p -d"
+        }
+    ],
+    "standard": [
+        {
+            "length": 17,
+            "name": "AndrewZwicky",
+            "query": "ce o:\", ex\"t:w -h"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 40,
+            "name": "charlequin",
+            "query": "c<gw t:nc -is:fnm o:un fo:{ fo:ap t i -d"
+        },
+        {
+            "length": 44,
+            "name": "TheElk801",
+            "query": "t:nc r:u fo:{ l e t -h -d -q c<gw -o:ev -a:t"
+        }
+    ]
+}

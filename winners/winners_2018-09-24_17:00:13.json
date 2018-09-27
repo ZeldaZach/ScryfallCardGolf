@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 19,
+            "name": "DelverGoGaming",
+            "query": "name:/lo.{5}u/g t:f"
+        }
+    ],
+    "standard": [
+        {
+            "length": 19,
+            "name": "TheElk801",
+            "query": "pt<9u g lo o:t} t:f"
+        },
+        {
+            "length": 25,
+            "name": "W_Nivvy",
+            "query": "a:da c<=g t:f lo r g -o:w"
+        }
+    ]
+}
