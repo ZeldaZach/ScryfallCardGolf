@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 17,
+            "name": "AndrewZwicky",
+            "query": "ro a:v m t ft:rac"
+        },
+        {
+            "length": 17,
+            "name": "DelverGoGaming",
+            "query": "ft:rac ro a:v c:g"
+        }
+    ]
+}

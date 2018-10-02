@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 24,
+            "name": "DelverGoGaming",
+            "query": "t:in ft:nk fo:our p -o:b"
+        }
+    ]
+}

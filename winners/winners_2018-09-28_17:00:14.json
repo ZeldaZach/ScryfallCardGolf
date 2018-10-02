@@ -1,0 +1,20 @@
+{
+    "regex": [
+        {
+            "length": 23,
+            "name": "DelverGoGaming",
+            "query": "o:/:.re.{10}e/ing -k -w"
+        },
+        {
+            "length": 27,
+            "name": "DelverGoGaming",
+            "query": "name:/e.{4}ing\\s.{8}/o:: -m"
+        },
+        {
+            "length": 32,
+            "name": "DelverGoGaming",
+            "query": "name:/e.{4}ing\\s.{8}/ -ft:\" \" -w"
+        }
+    ],
+    "standard": []
+}

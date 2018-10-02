@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 23,
+            "name": "TheElk801",
+            "query": "u t:in o:cer ft:or a:li"
+        }
+    ]
+}
