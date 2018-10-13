@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 22,
+            "name": "DelverGoGaming",
+            "query": "name:/e.*n..u.*k/ft:nd"
+        }
+    ],
+    "standard": []
+}

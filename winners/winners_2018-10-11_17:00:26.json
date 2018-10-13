@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 20,
+            "name": "DoubleFried",
+            "query": "ft:/e a?t.r.a...a?h/"
+        }
+    ],
+    "standard": []
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 21,
+            "name": "DoubleFried",
+            "query": "ft:/a.{10} w..t/io us"
+        }
+    ],
+    "standard": []
+}

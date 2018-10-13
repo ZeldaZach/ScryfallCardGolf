@@ -1,0 +1,20 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 23,
+            "name": "DelverGoGaming",
+            "query": "a:ev o:mo -ft:m -e ft:b"
+        },
+        {
+            "length": 39,
+            "name": "Teferi92",
+            "query": "id:gb a:er o:mo ft:the t:r -ft:m a l -e"
+        },
+        {
+            "length": 40,
+            "name": "Teferi92",
+            "query": "id:gb a:er t:s o:mo ft:the t:r -ft:m a l"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 18,
+            "name": "peterpanik2222",
+            "query": "ft:/earn?ed, [ig]/"
+        }
+    ],
+    "standard": [
+        {
+            "length": 18,
+            "name": "W_Nivvy",
+            "query": "t:s a:va ft:al r y"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 10,
+            "name": "DoubleFried",
+            "query": "ft:eanc ca"
+        },
+        {
+            "length": 13,
+            "name": "AndrewZwicky",
+            "query": "ft:nce.\" a:lu"
+        },
+        {
+            "length": 15,
+            "name": "InkStainedCards",
+            "query": "flavor:engea ca"
+        },
+        {
+            "length": 16,
+            "name": "W_Nivvy",
+            "query": "ca c>=b ft:ance."
+        }
+    ]
+}
