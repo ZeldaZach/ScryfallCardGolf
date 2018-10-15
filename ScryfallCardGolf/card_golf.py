@@ -365,10 +365,10 @@ def start_game(force_new: bool = False) -> None:
     # Merge the images
     tweet_image_url: str = merge_card_images(cards)
 
-    message = ("Can you make both of these cards show up in a Scryfall search without using 'or'?\n"
+    message = ("Can you get these cards to show up in a Scryfall search without using 'or'?\n"
                "• {}\n"
                "• {}\n"
-               "Reply to this tweet with a Scryfall URL in the next 24 hours to enter!").format(card1, card2)
+               "Reply to this tweet with a Scryfall URL in the next 72 hours to enter!").format(card1, card2)
 
     # Send the tweet
     tweet_id: int = send_tweet(message, tweet_image_url)
