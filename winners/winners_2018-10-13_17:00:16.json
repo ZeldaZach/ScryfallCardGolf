@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "DelverGoGaming",
+            "query": "o:tw ar r:u o:op a:ra"
+        }
+    ]
+}

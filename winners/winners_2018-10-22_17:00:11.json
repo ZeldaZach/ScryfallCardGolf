@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 30,
+            "name": "DollarCommander",
+            "query": "a:t a:z c:c ft:/^...r/-ft:u -o"
+        }
+    ],
+    "standard": []
+}

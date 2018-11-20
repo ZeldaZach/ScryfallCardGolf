@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 29,
+            "name": "W_Nivvy",
+            "query": "name:/or.*i.*n.*s.*l.*r/ -a:y"
+        }
+    ],
+    "standard": []
+}

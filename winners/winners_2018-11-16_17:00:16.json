@@ -1,0 +1,25 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 27,
+            "name": "Teferi92",
+            "query": "c=g n a:k o:cho -l -a:e r:r"
+        },
+        {
+            "length": 28,
+            "name": "Teferi92",
+            "query": "c=g n a:k o:yo o:cho -l -a:e"
+        },
+        {
+            "length": 31,
+            "name": "Teferi92",
+            "query": "c=g a:k -t:i o:yo o:cho -l -a:e"
+        },
+        {
+            "length": 33,
+            "name": "Teferi92",
+            "query": "c=g a:k -t:i o:yo o:cho r:r -c -l"
+        }
+    ]
+}
