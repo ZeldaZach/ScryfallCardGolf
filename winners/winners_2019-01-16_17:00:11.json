@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 33,
+            "name": "1n1n1s3",
+            "query": "name:/e[am][bv][ae]/cmc=4c=u t:en"
+        }
+    ],
+    "standard": []
+}

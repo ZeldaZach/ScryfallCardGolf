@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 89,
+            "name": "mtgguy0317",
+            "query": "t:artifact t:creature cmc>2 cmc<6 pow=3 tou=3 year>1999 year<2017 o:\"sacrifice ~\" usd<.10"
+        }
+    ]
+}

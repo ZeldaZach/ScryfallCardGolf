@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 17,
+            "name": "InkStainedCards",
+            "query": "ri sh c=r t:sh -e"
+        }
+    ]
+}

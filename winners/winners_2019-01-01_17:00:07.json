@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 39,
+            "name": "1n1n1s3",
+            "query": "name:/r[^fgloxs]+r[a-imt ]{4,}on$/cmc<7"
+        }
+    ],
+    "standard": []
+}

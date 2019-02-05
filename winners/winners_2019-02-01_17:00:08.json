@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 28,
+            "name": "temporicide4",
+            "query": "ft:st c en a:k pow>tou -s -y"
+        }
+    ]
+}

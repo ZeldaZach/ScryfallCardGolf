@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 83,
+            "name": "mtgguy0317",
+            "query": "cmc=3 year>2015 year<2019 o:creature o:enchantment not:permanent id:esper -r:c -r:r"
+        }
+    ]
+}

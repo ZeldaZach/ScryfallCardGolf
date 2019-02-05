@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 37,
+            "name": "1n1n1s3",
+            "query": "c=g cmc=1 name:/i.*r.* .*a/o:tap o:ar"
+        }
+    ],
+    "standard": []
+}

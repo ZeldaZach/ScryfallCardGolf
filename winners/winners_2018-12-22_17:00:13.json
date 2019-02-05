@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 34,
+            "name": "Mark_Confidant",
+            "query": "t:nt a:m o:/u .*c/r o:/'. b/d -a:o"
+        },
+        {
+            "length": 39,
+            "name": "Mark_Confidant",
+            "query": "de t:nt a:m o:/ou .*con/r o:/'. b/ -a:o"
+        }
+    ],
+    "standard": []
+}
