@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 31,
+            "name": "MarvinKassabian",
+            "query": "c=b t:cre o:+ t:n year=2000w -p"
+        }
+    ]
+}

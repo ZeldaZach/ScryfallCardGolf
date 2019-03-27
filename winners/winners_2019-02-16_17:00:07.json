@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 37,
+            "name": "MarvinKassabian",
+            "query": "ai s -w -c -tt ci:wb t:enc o:wh cmc>2"
+        }
+    ]
+}

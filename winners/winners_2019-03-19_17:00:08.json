@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 29,
+            "name": "Teferi92",
+            "query": "ft:eat ft:is o:wh c:b t:h v o"
+        }
+    ]
+}
