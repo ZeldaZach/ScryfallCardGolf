@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 49,
+            "name": "Teferi92",
+            "query": "id=1 id:gr t:an -t:i cmc<2a:r a:d -n -l -c i -t:r"
+        },
+        {
+            "length": 53,
+            "name": "Teferi92",
+            "query": "id=1 id:gr t:an -t:i cmc<2 a:r a:d -n -l -c -m:g -t:r"
+        }
+    ]
+}

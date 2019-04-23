@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 20,
+            "name": "Teferi92",
+            "query": "r=u a:nt id:ur sh at"
+        }
+    ]
+}
