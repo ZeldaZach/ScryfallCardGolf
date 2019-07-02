@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 21,
+            "name": "tr0mpa",
+            "query": "name:/sh?i.*sa?d/ a:b"
+        },
+        {
+            "length": 30,
+            "name": "gcaticha",
+            "query": "a:anb name:/sh?i/ -b tou=3 r:c"
+        }
+    ],
+    "standard": []
+}

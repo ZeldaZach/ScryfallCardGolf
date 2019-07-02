@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 20,
+            "name": "JelleZwaan",
+            "query": "eth t:ta o:1 r:r m:2"
+        }
+    ]
+}

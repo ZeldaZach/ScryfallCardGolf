@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 25,
+            "name": "Avangrd",
+            "query": "name:/^l.* g/ o:/ic/ id:u"
+        }
+    ],
+    "standard": []
+}

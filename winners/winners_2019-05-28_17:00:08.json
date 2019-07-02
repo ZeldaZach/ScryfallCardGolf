@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 29,
+            "name": "gcaticha",
+            "query": "o:ur o:1/ -t:u a:g o:/k\\b/ -e"
+        }
+    ],
+    "standard": [
+        {
+            "length": 24,
+            "name": "hbejgel",
+            "query": "-e -r a:g o:bl o:1/ -t:u"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 13,
+            "name": "tr0mpa",
+            "query": "ft:\"f weap\" r"
+        },
+        {
+            "length": 15,
+            "name": "tr0mpa",
+            "query": "ft:\"f weap\" c:g"
+        },
+        {
+            "length": 16,
+            "name": "nEverfrost",
+            "query": "i wa c:g ft:weap"
+        },
+        {
+            "length": 20,
+            "name": "nEverfrost",
+            "query": "i wa c:g t:c ft:weap"
+        }
+    ]
+}

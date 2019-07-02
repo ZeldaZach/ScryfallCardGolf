@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 29,
+            "name": "JelleZwaan",
+            "query": "o:/h.*~.*g/ m n p -c a:b pt=4"
+        }
+    ],
+    "standard": [
+        {
+            "length": 37,
+            "name": "nEverfrost",
+            "query": "p -t -c id:uw o:tar o:~ t:s t:l tou=2"
+        }
+    ]
+}

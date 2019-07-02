@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 26,
+            "name": "TTMiguelTT",
+            "query": "Te ft:/he s.* cl.* w\\w+.$/"
+        },
+        {
+            "length": 29,
+            "name": "tr0mpa",
+            "query": "ft:/o.. .*cl.?a. .*i.* w/ t s"
+        }
+    ],
+    "standard": []
+}

@@ -1,0 +1,25 @@
+{
+    "regex": [
+        {
+            "length": 32,
+            "name": "JelleZwaan",
+            "query": "name:/e\\s.a/ -a:ti a:eb -t -r -l"
+        },
+        {
+            "length": 35,
+            "name": "JelleZwaan",
+            "query": "name:/e\\s.a/ date>nph a:eb -t -r -h"
+        },
+        {
+            "length": 41,
+            "name": "nEverfrost",
+            "query": "name:/a.e/ -t -d t:ur r:c o:pel year>2010"
+        },
+        {
+            "length": 42,
+            "name": "tr0mpa",
+            "query": "o:/ca..?t a.* or .*,.*\\n.*\\bw/ a:b cmc<4 a"
+        }
+    ],
+    "standard": []
+}
