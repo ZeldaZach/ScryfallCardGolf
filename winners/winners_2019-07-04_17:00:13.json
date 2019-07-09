@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 25,
+            "name": "Drunk_MTG",
+            "query": "name:/n.w/ o:2 o:{G} a:ch"
+        }
+    ],
+    "standard": [
+        {
+            "length": 13,
+            "name": "Giz_One_",
+            "query": "a:hou o:{g} w"
+        },
+        {
+            "length": 13,
+            "name": "JelleZwaan",
+            "query": "a:hou c=g n w"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 22,
+            "name": "bladebarringer",
+            "query": "ft:q name:/^(nag|tro)/"
+        }
+    ],
+    "standard": [
+        {
+            "length": 15,
+            "name": "JelleZwaan",
+            "query": "ft:q a:x c=u le"
+        },
+        {
+            "length": 17,
+            "name": "JelleZwaan",
+            "query": "t:ri ft:q a:x c:u"
+        }
+    ]
+}
