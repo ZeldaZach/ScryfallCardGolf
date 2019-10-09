@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 18,
+            "name": "JelleZwaan",
+            "query": "p un ng -l -r t:in"
+        }
+    ]
+}

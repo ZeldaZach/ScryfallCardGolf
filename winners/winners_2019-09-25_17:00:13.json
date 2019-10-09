@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 54,
+            "name": "nEverfrost",
+            "query": "r:u cmc<4 ft:ou -t:cr -t:s -t:l an -f -h -c -p a:h a:o"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 44,
+            "name": "morgunkorn",
+            "query": "name:/^\\b[cp]r[oe].*[ny]\\b.*\\b[dh].*[mr]\\b$/"
+        }
+    ],
+    "standard": []
+}

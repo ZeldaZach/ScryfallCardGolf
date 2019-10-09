@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 50,
+            "name": "nEverfrost",
+            "query": "cmc=3 pow=2  r<r -id:ub a:bo a:l o:~ o:er -b -d -f"
+        },
+        {
+            "length": 51,
+            "name": "Giz_One_",
+            "query": "cmc:3 t:creature a:bo o:\"{\" o:~ o:en o:ng power:2 e"
+        }
+    ]
+}

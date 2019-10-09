@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 30,
+            "name": "nEverfrost",
+            "query": "a:er a:ni tou=2 cmc<4 -n -a -d"
+        }
+    ]
+}

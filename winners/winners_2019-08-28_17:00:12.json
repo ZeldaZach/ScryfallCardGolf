@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 30,
+            "name": "JRandomHacker",
+            "query": "ft:/c.{13}i.{28}s/-ft:b -g o:b"
+        }
+    ],
+    "standard": [
+        {
+            "length": 39,
+            "name": "nEverfrost",
+            "query": "b cmc>2 id:ur r<r a:h t:an o:tro ft:ose"
+        }
+    ]
+}

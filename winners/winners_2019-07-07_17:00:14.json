@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 27,
+            "name": "JelleZwaan",
+            "query": "o:ex a:an -a:j c<wg r el -d"
+        }
+    ]
+}

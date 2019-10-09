@@ -1,0 +1,20 @@
+{
+    "regex": [
+        {
+            "length": 22,
+            "name": "Drunk_MTG",
+            "query": "name:/i.n.*on/ rd m -k"
+        },
+        {
+            "length": 24,
+            "name": "Drunk_MTG",
+            "query": "name:/i.n.*on/ id:b rd m"
+        },
+        {
+            "length": 25,
+            "name": "Drunk_MTG",
+            "query": "name:/i.n.*on/ id:b rd -l"
+        }
+    ],
+    "standard": []
+}

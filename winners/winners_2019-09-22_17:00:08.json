@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 25,
+            "name": "JelleZwaan",
+            "query": "t:ra a:ark g er c<br -t:h"
+        }
+    ]
+}

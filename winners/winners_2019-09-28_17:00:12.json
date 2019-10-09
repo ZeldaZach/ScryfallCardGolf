@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 30,
+            "name": "The_Freshmaker_",
+            "query": "a:eve power=3 o:equal o:damage"
+        }
+    ]
+}

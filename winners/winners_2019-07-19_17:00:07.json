@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 32,
+            "name": "azaquaz",
+            "query": "s o th o:yo cmc=1 (a:on a:h a:d)"
+        },
+        {
+            "length": 52,
+            "name": "azaquaz",
+            "query": "s o th oracle:yo cmc=1 (artist:on artist:h artist:d)"
+        }
+    ]
+}

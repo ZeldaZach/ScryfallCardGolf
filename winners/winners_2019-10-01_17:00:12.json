@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 27,
+            "name": "PerryKleinhenz",
+            "query": "ng h o:thi o:rn id:ub b:sok"
+        },
+        {
+            "length": 63,
+            "name": "The_Freshmaker_",
+            "query": "name:\"ing\" and \"sh\" b:chk -f:pauper o:turn ci:dimir -o:defender"
+        }
+    ]
+}
