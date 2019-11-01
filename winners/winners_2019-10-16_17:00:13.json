@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 42,
+            "name": "PerryKleinhenz",
+            "query": "st:multiplayer id:ug t:cre t:w o:ib  -g -i"
+        }
+    ]
+}

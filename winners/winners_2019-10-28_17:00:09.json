@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 31,
+            "name": "morgunkorn",
+            "query": "name:/^d?ar[\\w]{2,3} [\\w]{3}ot/"
+        }
+    ],
+    "standard": [
+        {
+            "length": 20,
+            "name": "morgunkorn",
+            "query": "ar ot t:ra t:p c<=u "
+        }
+    ]
+}

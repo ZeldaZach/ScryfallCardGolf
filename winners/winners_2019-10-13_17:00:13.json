@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 25,
+            "name": "PerryKleinhenz",
+            "query": "g p on id:u o:block o:n't"
+        },
+        {
+            "length": 37,
+            "name": "nEverfrost",
+            "query": "g on c:u t:st o:creat o:n't year<2004"
+        }
+    ]
+}

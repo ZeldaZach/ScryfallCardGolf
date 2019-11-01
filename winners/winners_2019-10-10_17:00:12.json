@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 26,
+            "name": "PerryKleinhenz",
+            "query": "ft:\"e.\" ft:' o:{T} v e st "
+        }
+    ]
+}

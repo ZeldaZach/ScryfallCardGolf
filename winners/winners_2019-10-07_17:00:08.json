@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 47,
+            "name": "PerryKleinhenz",
+            "query": "o:card o:/\\b.ay\\b/ color<=u -b e a s t ing -t:y"
+        }
+    ],
+    "standard": [
+        {
+            "length": 51,
+            "name": "nEverfrost",
+            "query": "ing -w -v -d -b -m id:buw o:~ o:ay o:card year>2015"
+        }
+    ]
+}
