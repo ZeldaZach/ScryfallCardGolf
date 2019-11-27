@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "notato88",
+            "query": "lt li n -t:cr c<=u -w"
+        }
+    ]
+}

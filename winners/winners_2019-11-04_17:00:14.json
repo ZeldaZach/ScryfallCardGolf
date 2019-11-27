@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 20,
+            "name": "morgunkorn",
+            "query": "o:/mo.+\\{5/ r=u c<=g"
+        },
+        {
+            "length": 27,
+            "name": "mprosser994",
+            "query": "t:cr o:/mo.*\\{5\\}/ r=u c<=g"
+        }
+    ],
+    "standard": []
+}
