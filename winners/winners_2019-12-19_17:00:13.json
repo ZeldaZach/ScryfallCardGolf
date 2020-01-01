@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 26,
+            "name": "morgunkorn",
+            "query": "name:/ri?se? / a:j o:1 m:3"
+        }
+    ],
+    "standard": [
+        {
+            "length": 23,
+            "name": "atseajournal",
+            "query": "v on o:ok o:1 c<=br a:j"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 33,
+            "name": "atseajournal",
+            "query": "cmc=5 er id:b  o:\":\" o:\"s +\" o:fl"
+        }
+    ]
+}

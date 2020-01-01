@@ -1,0 +1,20 @@
+{
+    "regex": [
+        {
+            "length": 29,
+            "name": "morgunkorn",
+            "query": "name:/^r/e w a t id:w a:s o:~"
+        },
+        {
+            "length": 32,
+            "name": "atseajournal",
+            "query": "name:/^r/ e w a t id:w cmc>2 a:s"
+        },
+        {
+            "length": 36,
+            "name": "morgunkorn",
+            "query": "a:ev id:w name:/^r/-p -u -y date>mor"
+        }
+    ],
+    "standard": []
+}

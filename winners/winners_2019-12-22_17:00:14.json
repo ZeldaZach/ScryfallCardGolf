@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 28,
+            "name": "atseajournal",
+            "query": "name:/^d.*\\b.a.*l.$/ n -w -r"
+        }
+    ],
+    "standard": [
+        {
+            "length": 39,
+            "name": "jsndmnn",
+            "query": "-t:l -t:e t:n o:le -r a i d le artist:r"
+        }
+    ]
+}

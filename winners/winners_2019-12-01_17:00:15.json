@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 48,
+            "name": "atseajournal",
+            "query": "fo:/ot.*a.*\\(/ t:/an.*a/ c=w r=c cmc>2 year>2015"
+        }
+    ],
+    "standard": [
+        {
+            "length": 28,
+            "name": "morgunkorn",
+            "query": "c:w r:c ot -f -i -w date>w16"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 28,
+            "name": "morgunkorn",
+            "query": "r=u c=2 name:/t.i..$/ cmc<=3"
+        }
+    ],
+    "standard": []
+}

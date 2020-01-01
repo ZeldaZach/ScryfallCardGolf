@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 36,
+            "name": "atseajournal",
+            "query": "name:/c.*l.*s.\\b/ o:fl  id:wur tou<2"
+        }
+    ],
+    "standard": []
+}

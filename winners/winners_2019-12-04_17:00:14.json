@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 23,
+            "name": "atseajournal",
+            "query": "es ng o:/^t/ o:/^c/ a:b"
+        },
+        {
+            "length": 26,
+            "name": "morgunkorn",
+            "query": "n o:/^t/e:shm,ala a:b -c:r"
+        }
+    ],
+    "standard": []
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 30,
+            "name": "morgunkorn",
+            "query": "g name:/ia. .{6}$/ r>c tou>pow"
+        }
+    ],
+    "standard": []
+}
