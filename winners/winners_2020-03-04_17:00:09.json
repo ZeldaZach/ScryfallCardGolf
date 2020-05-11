@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 17,
+            "name": "W_Livi_",
+            "query": "name:/^ki/ ft:fe."
+        }
+    ],
+    "standard": []
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 53,
+            "name": "benouyangpei",
+            "query": " o:\"exile the top\" o:\"of your library\" ne t:legendary"
+        }
+    ]
+}

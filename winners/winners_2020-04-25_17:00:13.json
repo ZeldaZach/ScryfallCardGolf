@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 15,
+            "name": "Mark_Confidant",
+            "query": "ft:fut a:ac f:s"
+        }
+    ]
+}
