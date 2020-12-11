@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 23,
+            "name": "n21lv",
+            "query": "o:/re.*en.*'t c/o:+ t:g"
+        }
+    ],
+    "standard": []
+}

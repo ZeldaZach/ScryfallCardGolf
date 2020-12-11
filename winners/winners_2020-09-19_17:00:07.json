@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 33,
+            "name": "Th_Dirty_Mac",
+            "query": "fo:/2.*{T}/ m>3 ar year>2013 t:cr"
+        }
+    ],
+    "standard": []
+}

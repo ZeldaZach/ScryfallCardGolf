@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 123,
+            "name": "EctoCoolerRanch",
+            "query": "artist:c artist:r artist:l artist:h -artist:s artist:i usd<0.78 cmc<3 cmc>0 -c:u -c:b -c:r flavor:, flavor:w -c:g  a f l r "
+        }
+    ]
+}

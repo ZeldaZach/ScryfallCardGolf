@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 42,
+            "name": "Spagettigaling",
+            "query": "ssa g o:1 id:gb year>2010 a:h a:s t:s -t:p"
+        }
+    ]
+}

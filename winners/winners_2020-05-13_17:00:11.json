@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 47,
+            "name": "moisesguimaraes",
+            "query": "year<=1997 cmc=3 c<bg c>0 o:ra o:of ft:it ft:mo"
+        },
+        {
+            "length": 79,
+            "name": "Spagettigaling",
+            "query": "cmc=3 ft:the e -n -x a:e -a:h f:legacy o:of  -f:modern -f:pauper  -is:permanent"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 65,
+            "name": "beannloaf",
+            "query": "o:/target opponent.*un.*that/ m:{3} year>=2015 -id>=b -t:artifact"
+        }
+    ],
+    "standard": []
+}

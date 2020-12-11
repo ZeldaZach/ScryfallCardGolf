@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 33,
+            "name": "zefferal",
+            "query": "t:art f:m o:{T} ft:' no id<UB a:l"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 48,
+            "name": "moisesguimaraes",
+            "query": "cmc=1 o:target c<=r in o h e a r t s -t:creature"
+        }
+    ]
+}

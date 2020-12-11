@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 50,
+            "name": "troacctid",
+            "query": "name:/n.*s.*o/ a:ri t:/c.*i/ r:uncommon is:digital"
+        }
+    ],
+    "standard": []
+}

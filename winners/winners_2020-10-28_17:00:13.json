@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 47,
+            "name": "bentheechidna",
+            "query": "mana:1G t:creature date<MRD c=g ld i a e art:nt"
+        }
+    ]
+}

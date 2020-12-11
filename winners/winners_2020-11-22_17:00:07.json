@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 37,
+            "name": "troacctid",
+            "query": "o:\"damage to\" o:li cmc=3 ft:/an.*but/"
+        }
+    ],
+    "standard": []
+}

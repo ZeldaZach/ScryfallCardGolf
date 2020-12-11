@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "AcciCoincidence",
+            "query": "tou=2 hu r:r c<=rw -d"
+        }
+    ]
+}

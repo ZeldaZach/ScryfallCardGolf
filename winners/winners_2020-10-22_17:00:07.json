@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 38,
+            "name": "frostownik",
+            "query": "cmc<6 id:guw r:r t:ea a:y a:o sh d t o"
+        }
+    ]
+}

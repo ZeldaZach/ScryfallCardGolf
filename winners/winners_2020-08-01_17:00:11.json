@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 27,
+            "name": "TheCommieDuck",
+            "query": "ft:/e.\\.\\\"/ t:am pow=3 a:ch"
+        }
+    ],
+    "standard": []
+}

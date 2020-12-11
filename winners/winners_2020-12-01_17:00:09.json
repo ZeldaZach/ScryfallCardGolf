@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 26,
+            "name": "n21lv",
+            "query": "o:/tr.*ha.*or.*our.*nd/t:d"
+        },
+        {
+            "length": 29,
+            "name": "troacctid",
+            "query": "name:/r.*e.*ar.*nge/ pow!=tou"
+        }
+    ],
+    "standard": []
+}

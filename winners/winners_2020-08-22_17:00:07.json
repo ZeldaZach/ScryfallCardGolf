@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 176,
+            "name": "guillemnicolau",
+            "query": "li oracle:you (-type:bird -type:cleric -type:scout -type:spirit) color=W mana:2{W} cmc=3 legal:modern rarity:c (is:flavor is:modern is:permanent is:onlyprint) usd<0.10 usd>0.02"
+        }
+    ]
+}

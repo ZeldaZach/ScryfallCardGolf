@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "morgunkorn",
+            "query": "f:s o:ba an y -i -t:i"
+        },
+        {
+            "length": 26,
+            "name": "morgunkorn",
+            "query": "f:s ft:rea o:ba o:or an -f"
+        }
+    ]
+}

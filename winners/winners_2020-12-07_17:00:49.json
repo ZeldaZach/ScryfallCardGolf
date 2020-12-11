@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 44,
+            "name": "MarvinKassabian",
+            "query": "name:/re.*d.*am.*/t:/r.*c/f:l -t:cr -es c<=b"
+        }
+    ],
+    "standard": []
+}

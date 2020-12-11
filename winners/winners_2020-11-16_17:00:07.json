@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 22,
+            "name": "Th_Dirty_Mac",
+            "query": "o:/ca.+ar.+re.*les.+4/"
+        },
+        {
+            "length": 23,
+            "name": "Th_Dirty_Mac",
+            "query": "o:/ca.+ar.+les.+4/ c<=w"
+        }
+    ],
+    "standard": []
+}

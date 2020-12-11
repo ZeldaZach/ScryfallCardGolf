@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 42,
+            "name": "Th_Dirty_Mac",
+            "query": "year=2017 -s -d -t o e -o:+ o:cr o:1 cmc>2"
+        }
+    ]
+}

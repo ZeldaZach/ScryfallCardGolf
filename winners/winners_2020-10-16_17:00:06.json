@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 24,
+            "name": "W_Livi_",
+            "query": "t:am a:m ft:is o:/b.*ot/"
+        }
+    ],
+    "standard": []
+}
