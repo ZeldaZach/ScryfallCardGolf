@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 16,
+            "name": "CandyEnBee",
+            "query": "fo:costs lo x -s"
+        },
+        {
+            "length": 33,
+            "name": "zefferal",
+            "query": "m lo x  f:m o:art r<=u is:reprint"
+        }
+    ]
+}

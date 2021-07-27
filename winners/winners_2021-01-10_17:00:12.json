@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 15,
+            "name": "JelleZwaan",
+            "query": "ft:--ol a:w a i"
+        }
+    ]
+}

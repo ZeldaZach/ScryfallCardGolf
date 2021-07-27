@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 17,
+            "name": "JelleZwaan",
+            "query": "ci=gw o:/ il r -e"
+        }
+    ]
+}

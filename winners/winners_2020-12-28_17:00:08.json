@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 31,
+            "name": "Vanja28208120",
+            "query": "name:/^e?n.*c(al)?e/ a:int t:cr"
+        }
+    ],
+    "standard": []
+}

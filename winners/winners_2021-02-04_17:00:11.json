@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 34,
+            "name": "JelleZwaan",
+            "query": "o:/\\d .?r/\"or\"a:i -c=g b i n -f -y"
+        }
+    ],
+    "standard": []
+}

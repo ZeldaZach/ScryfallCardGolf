@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 43,
+            "name": "AlexCue88125369",
+            "query": "o:with cmc:4 a:all year<2009 year>2003 id:g"
+        }
+    ]
+}

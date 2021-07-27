@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 41,
+            "name": "JelleZwaan",
+            "query": "a:on cmc:2 o:st c<ug e s -c -i -k -p -\"'\""
+        }
+    ]
+}

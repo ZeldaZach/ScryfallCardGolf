@@ -1,0 +1,25 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 20,
+            "name": "JelleZwaan",
+            "query": "a:ke b:ths t:so ft:u"
+        },
+        {
+            "length": 21,
+            "name": "Erniemist",
+            "query": "a:kev b:ths t:so ft:u"
+        },
+        {
+            "length": 24,
+            "name": "stuckinpictures",
+            "query": "a:kev t:so b:ths c<=ub y"
+        },
+        {
+            "length": 56,
+            "name": "Sierkovitz",
+            "query": " (artist:kev artist:walker)  year=2014  ft:or t:so ft:ri"
+        }
+    ]
+}

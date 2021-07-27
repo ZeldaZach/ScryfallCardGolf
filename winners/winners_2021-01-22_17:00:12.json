@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 35,
+            "name": "JelleZwaan",
+            "query": "name:/^.{6}i[^cgntv ]/ c<=r a:u c g"
+        }
+    ],
+    "standard": []
+}

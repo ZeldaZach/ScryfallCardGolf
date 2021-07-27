@@ -1,0 +1,20 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 18,
+            "name": "JelleZwaan",
+            "query": "a:go t:tm er g n u"
+        },
+        {
+            "length": 19,
+            "name": "ChiralWOCR",
+            "query": "a:go u g n t:en r:u"
+        },
+        {
+            "length": 23,
+            "name": "TheCommieDuck",
+            "query": "t:tm ft:er a:go g u o:1"
+        }
+    ]
+}

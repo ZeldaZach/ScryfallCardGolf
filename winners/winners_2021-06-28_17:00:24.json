@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 33,
+            "name": "AlexCue88125369",
+            "query": "name:/^.r.+n.+n.+er$/ o:/{T}.+or/"
+        }
+    ],
+    "standard": []
+}

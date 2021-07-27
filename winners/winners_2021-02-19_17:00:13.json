@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 23,
+            "name": "JelleZwaan",
+            "query": "t:f m:3 o:+ r:c le c -g"
+        },
+        {
+            "length": 30,
+            "name": "frostownik",
+            "query": "c le -g t:f r:c id:g o:+ cmc>2"
+        }
+    ]
+}

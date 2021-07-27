@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 28,
+            "name": "JelleZwaan",
+            "query": "name:/^...d.+a..$/c=u a:ma o"
+        }
+    ],
+    "standard": []
+}

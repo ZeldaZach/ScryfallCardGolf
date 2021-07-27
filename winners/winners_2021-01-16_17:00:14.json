@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 33,
+            "name": "troacctid",
+            "query": "name:/a.*s.*ik/ ft:/un.*the/ t:in"
+        }
+    ],
+    "standard": [
+        {
+            "length": 21,
+            "name": "JelleZwaan",
+            "query": "o:am ft:un t:in ik -c"
+        }
+    ]
+}

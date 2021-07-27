@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 27,
+            "name": "Vanja28208120",
+            "query": "name:/^c.*er$/ ft:pon cmc>2"
+        },
+        {
+            "length": 27,
+            "name": "troacctid",
+            "query": "name:/c.*t.*a.*u.*er/ a:sen"
+        }
+    ],
+    "standard": []
+}

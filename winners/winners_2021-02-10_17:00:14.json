@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 32,
+            "name": "JelleZwaan",
+            "query": "name:/^.{6} .{2,4}a..$/r:c h i o"
+        }
+    ],
+    "standard": []
+}
