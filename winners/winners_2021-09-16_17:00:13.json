@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "Eiimcology",
+            "query": "ra o:}{ b -s fo:d: -c"
+        },
+        {
+            "length": 30,
+            "name": "CandyEnBee",
+            "query": "ra fo:ard: -fo:w o:re -v -s -c"
+        }
+    ]
+}

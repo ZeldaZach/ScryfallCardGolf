@@ -1,0 +1,20 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 16,
+            "name": "Eiimcology",
+            "query": "p ft:\" ass\" o:rt"
+        },
+        {
+            "length": 20,
+            "name": "Eiimcology",
+            "query": "ft:pt o:rt -t r:u -g"
+        },
+        {
+            "length": 20,
+            "name": "Eiimcology",
+            "query": "ft:pt o:rt -t r:u -g"
+        }
+    ]
+}

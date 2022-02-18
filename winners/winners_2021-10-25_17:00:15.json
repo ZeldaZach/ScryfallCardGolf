@@ -1,0 +1,16 @@
+{
+    "regex": [
+        {
+            "length": 16,
+            "name": "W_Livi_",
+            "query": "t:p ft:/ka?i.in/"
+        }
+    ],
+    "standard": [
+        {
+            "length": 17,
+            "name": "CandyEnBee",
+            "query": "k in er t:ir ft:-"
+        }
+    ]
+}

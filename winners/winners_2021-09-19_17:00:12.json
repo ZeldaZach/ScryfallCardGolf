@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 16,
+            "name": "Eiimcology",
+            "query": "co v -l pt<3 t:g"
+        }
+    ]
+}

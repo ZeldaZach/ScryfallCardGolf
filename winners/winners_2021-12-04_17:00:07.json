@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 13,
+            "name": "morgunkorn",
+            "query": "lof c=uw t:en"
+        },
+        {
+            "length": 22,
+            "name": "The_Dirty_Mac",
+            "query": "a:cha c=uw o:\"nt c\" -b"
+        }
+    ]
+}

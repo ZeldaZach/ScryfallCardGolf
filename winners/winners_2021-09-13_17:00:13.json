@@ -1,0 +1,20 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 25,
+            "name": "Eiimcology",
+            "query": "a:ar ft:ve f:f en -l -o:b"
+        },
+        {
+            "length": 28,
+            "name": "Eiimcology",
+            "query": "a:ar id:rb ft:ve f:f en -v s"
+        },
+        {
+            "length": 29,
+            "name": "Eiimcology",
+            "query": "a:ar id:rb ft:ve f:f s t -l r"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 33,
+            "name": "morgunkorn",
+            "query": "s:ktk,unh t:\u2013 -t -e -w -t:/[owl]/"
+        },
+        {
+            "length": 40,
+            "name": "morgunkorn",
+            "query": "id:ur s:ktk,unh -t -e t:h t:r -t:/[gwk]/"
+        }
+    ],
+    "standard": [
+        {
+            "length": 24,
+            "name": "Eiimcology",
+            "query": "r:u -e -s a:on fo:tim -u"
+        }
+    ]
+}

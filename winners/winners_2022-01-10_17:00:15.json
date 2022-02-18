@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 35,
+            "name": "morgunkorn",
+            "query": "\" m\" id:uw c:1 -ti -k -h ft:/l\\.?$/"
+        }
+    ],
+    "standard": []
+}

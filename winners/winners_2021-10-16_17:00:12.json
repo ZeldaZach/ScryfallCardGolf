@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "Eiimcology",
+            "query": "t:ns c>u o:ny -o -c n"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 35,
+            "name": "morgunkorn",
+            "query": "t:or ft:/^\u201c?t/ ft:/or.er/ s:znr,me2"
+        },
+        {
+            "length": 45,
+            "name": "morgunkorn",
+            "query": "e a id:wbr t:or ft:/or.er/ -c=b -c=r -c -w -h"
+        }
+    ],
+    "standard": []
+}

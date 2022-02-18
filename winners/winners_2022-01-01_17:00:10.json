@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 19,
+            "name": "morgunkorn",
+            "query": "ci ion -d s:ogw,ths"
+        }
+    ]
+}

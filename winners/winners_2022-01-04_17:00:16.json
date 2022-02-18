@@ -1,0 +1,21 @@
+{
+    "regex": [
+        {
+            "length": 19,
+            "name": "morgunkorn",
+            "query": "c c:b ft:/ res.*ev/"
+        },
+        {
+            "length": 26,
+            "name": "morgunkorn",
+            "query": "c -th c:b ft:/ rest/ t:ery"
+        }
+    ],
+    "standard": [
+        {
+            "length": 25,
+            "name": "morgunkorn",
+            "query": "c -th c:b ft:pr s:xln,rav"
+        }
+    ]
+}

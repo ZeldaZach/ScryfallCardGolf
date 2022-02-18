@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 27,
+            "name": "Eiimcology",
+            "query": "t:\"\u2014 S\"a:z ft:\"e pri\"-id:ub"
+        }
+    ]
+}

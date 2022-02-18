@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 20,
+            "name": "Eiimcology",
+            "query": "u er ing a:v c=b r:c"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "regex": [
+        {
+            "length": 14,
+            "name": "JelleZwaan",
+            "query": "t:/rat/d a:eng"
+        },
+        {
+            "length": 16,
+            "name": "Eiimcology",
+            "query": "t:/rat/ di a:eng"
+        }
+    ],
+    "standard": []
+}

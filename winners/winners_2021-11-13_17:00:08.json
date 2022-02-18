@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 180,
+            "name": "silberleinen",
+            "query": "el o=\"counter\" o=\"put\" -type=\"dungeon\" -o=\"control\" -o=\"{w}\" -o=\"{r}\" -type=artifact -type=human -type=instant -color>=G -color>=B -color>=U -color>=R -o=\"flying\" -type=enchantment"
+        },
+        {
+            "length": 226,
+            "name": "silberleinen",
+            "query": "el o=\"counter\" o=\"put\" -type=\"dungeon\" -o=\"control\" -o=\"{w}\" -o=\"{r}\" -type=artifact -type=planeswalker -type=human -type=instant -type=legend -type=sorcery -color>=G -color>=B -color>=U -color>=R -o=\"flying\" -type=enchantment"
+        }
+    ]
+}

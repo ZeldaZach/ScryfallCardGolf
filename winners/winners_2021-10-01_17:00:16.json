@@ -1,0 +1,10 @@
+{
+    "regex": [
+        {
+            "length": 15,
+            "name": "Eiimcology",
+            "query": "t:/l /el o:ores"
+        }
+    ],
+    "standard": []
+}

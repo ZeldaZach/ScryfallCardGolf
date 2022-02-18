@@ -1,0 +1,15 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 11,
+            "name": "Eiimcology",
+            "query": "cn:63a:av b"
+        },
+        {
+            "length": 13,
+            "name": "Eiimcology",
+            "query": "cn:63t:nc b w"
+        }
+    ]
+}

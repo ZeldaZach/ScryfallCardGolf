@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 21,
+            "name": "Eiimcology",
+            "query": "ker v t:nt o:\"r g\"-gl"
+        }
+    ]
+}

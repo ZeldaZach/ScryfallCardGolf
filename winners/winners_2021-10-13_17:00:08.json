@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 24,
+            "name": "Eiimcology",
+            "query": "o:ead er fo:per -d -c -l"
+        }
+    ]
+}

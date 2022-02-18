@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 24,
+            "name": "The_Dirty_Mac",
+            "query": "a:nc ft:are u c:r -f:m i"
+        }
+    ]
+}

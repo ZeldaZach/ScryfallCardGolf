@@ -1,0 +1,10 @@
+{
+    "regex": [],
+    "standard": [
+        {
+            "length": 28,
+            "name": "morgunkorn",
+            "query": "id:ur a:el o:~ w o s:bfz,inv"
+        }
+    ]
+}
